@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bunny Bites - From Cravings to Comfort, Carefully Crafted</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Toys Toggle Button -->
+    <button class="toys-toggle" id="toys-toggle" title="Toggle floating toys">
+      <i class="fas fa-eye"></i>
+    </button>
+
+    <!-- Floating Toys Throughout Page -->
+    <div class="page-toys">
+      <div class="floating-toy toy-1">
+        <i class="fas fa-rabbit"></i>
+      </div>
+      <div class="floating-toy toy-2">
+        <i class="fas fa-child"></i>
+      </div>
+      <div class="floating-toy toy-3">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="floating-toy toy-4">
+        <i class="fas fa-car"></i>
+      </div>
+      <div class="floating-toy toy-5">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="floating-toy toy-6">
+        <i class="fas fa-basketball-ball"></i>
+      </div>
+      <div class="floating-toy toy-7">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <div class="floating-toy toy-8">
+        <i class="fas fa-dice"></i>
+      </div>
+      <div class="floating-toy toy-9">
+        <i class="fas fa-plane"></i>
+      </div>
+      <div class="floating-toy toy-10">
+        <i class="fas fa-horse"></i>
+      </div>
+      <div class="floating-toy toy-11">
+        <i class="fas fa-paw"></i>
+      </div>
+      <div class="floating-toy toy-12">
+        <i class="fas fa-puzzle-piece"></i>
+      </div>
+      <div class="floating-toy toy-13">
+        <i class="fas fa-fish"></i>
+      </div>
+    </div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="logo">
+          <img src="img/logo.png" alt="Bunny Bites Logo" class="logo-image" />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a href="#contact" class="cta-button">Order Now</a>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-star"></i>
+            Trusted by 1000+ Families
+          </div>
+          <h1 class="hero-title">
+            Nutritious Meals for <span class="highlight">Happy Kids</span>
+          </h1>
+          <p class="hero-subtitle">
+            From Cravings to Comfort, Carefully Crafted
+          </p>
+          <p class="hero-description">
+            Supporting busy parents with convenient, healthy meals that kids
+            actually love. Every dish is thoughtfully prepared with quality
+            ingredients and balanced nutrition to fuel your child's growth and
+            happiness.
+          </p>
+          <div class="hero-buttons">
+            <a href="#menu" class="btn-primary">
+              <i class="fas fa-utensils"></i>
+              Explore Menu
+            </a>
+            <a href="#about" class="btn-secondary">
+              <i class="fas fa-heart"></i>
+              Our Story
+            </a>
+          </div>
+
+          <!-- Stats Section -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Happy Families</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Menu Items</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Fresh & Healthy</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <!-- Main Hero Image Container -->
+          <div class="hero-image-container">
+            <div class="hero-image-wrapper">
+              <!-- Replace this div with your actual image -->
+              <img
+                src="img/hero-1.jpeg"
+                alt="Delicious Kids Meal"
+                class="hero-main-image"
+              />
+              <!-- Fallback if no image is added -->
+              <div class="hero-image-placeholder">
+                <i class="fas fa-image"></i>
+                <p>Add Your Hero Image Here</p>
+              </div>
+            </div>
+
+            <!-- Simple Decorative Elements -->
+            <div class="hero-decoration decoration-1">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="hero-decoration decoration-2">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="hero-decoration decoration-3">
+              <i class="fas fa-cookie-bite"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="about">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">Why Choose Us</span>
+          <h2 class="section-title">Why Parents Trust Bunny Bites</h2>
+          <p class="section-description">
+            We're committed to making mealtime easier while never compromising
+            on nutrition and taste. Our approach combines convenience with care,
+            ensuring every meal supports your child's growth.
+          </p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="feature-title">Health & Nutrition</h3>
+            <p class="feature-description">
+              Every meal is carefully balanced with quality ingredients,
+              providing essential nutrients for growing children while
+              maintaining delicious flavors they'll love.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3 class="feature-title">Convenience for Parents</h3>
+            <p class="feature-description">
+              We understand busy schedules. Our cloud kitchen delivers fresh,
+              ready-to-eat meals that save you time without sacrificing quality
+              family nutrition.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3 class="feature-title">Trust & Transparency</h3>
+            <p class="feature-description">
+              We're open about our ingredients, sourcing, and preparation
+              methods. Building trust through transparency is at the heart of
+              everything we do.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h3 class="feature-title">Fast Delivery</h3>
+            <p class="feature-description">
+              Quick and reliable delivery service ensures your meals arrive
+              fresh and on time, making mealtime stress-free for busy families.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">How It Works</span>
+          <h2 class="section-title">Simple Steps to Happy Meals</h2>
+          <p class="section-description">
+            Getting nutritious, delicious meals for your kids has never been
+            easier. Our streamlined process ensures fresh, quality food
+            delivered right to your door.
+          </p>
+        </div>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <div class="step-icon">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h3 class="step-title">Choose Your Meals</h3>
+            <p class="step-description">
+              Browse our carefully curated menu of kid-friendly, nutritious
+              meals. Filter by dietary preferences and your child's favorites.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <div class="step-icon">
+              <i class="fas fa-fire"></i>
+            </div>
+            <h3 class="step-title">We Prepare Fresh</h3>
+            <p class="step-description">
+              Our expert chefs prepare each meal with fresh, quality ingredients
+              in our certified cloud kitchen, ensuring safety and nutrition.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <div class="step-icon">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h3 class="step-title">Fast Delivery</h3>
+            <p class="step-description">
+              Your meals are carefully packaged and delivered fresh to your door
+              within our promised timeframe. Hot meals stay hot, cold stays
+              cold.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <div class="step-icon">
+              <i class="fas fa-smile"></i>
+            </div>
+            <h3 class="step-title">Enjoy Together</h3>
+            <p class="step-description">
+              Watch your kids enjoy their nutritious meals while you relax
+              knowing they're getting the best nutrition for their growth.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">Healthy Tiffins</span>
+          <h2 class="section-title">Nutritious Meal Boxes</h2>
+          <p class="section-description">
+            Carefully curated healthy meal boxes packed with wholesome
+            ingredients, balanced nutrition, and delicious flavors. Each tiffin
+            is designed to provide complete nutrition for growing children while
+            maintaining authentic taste.
+          </p>
+        </div>
+
+        <div class="menu-grid">
+          <!-- Vegetable Pulao Meal Box -->
+          <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="menu-image">
+              <img
+                src="img/1.jpeg"
+                alt="Vegetable Pulao Meal Box"
+                class="food-image"
+              />
+              <div class="image-placeholder">
+                <i class="fas fa-bowl-food"></i>
+                <span>Meal Box</span>
+              </div>
+              <div class="nutrition-badge">
+                <i class="fas fa-leaf"></i>
+                <span>High Fiber</span>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3 class="menu-title">Vegetable Pulao Meal Box</h3>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="menu-description">
+                Aromatic basmati rice cooked with fresh vegetables, served with
+                dal, pickle, and papad. Rich in fiber and plant-based proteins.
+              </p>
+              <div class="ingredients">
+                <span class="ingredient-tag">Rice</span>
+                <span class="ingredient-tag">Vegetables</span>
+                <span class="ingredient-tag">Dal</span>
+              </div>
+              <div class="menu-footer">
+                <div class="price-section">
+                  <div class="menu-price">149</div>
+                  <span class="price-label">Per Box</span>
+                </div>
+                <button class="add-to-cart" data-item="vegetable-pulao">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Order Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Paneer Paratha Meal Box -->
+          <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="menu-image">
+              <img
+                src="img/2.jpeg"
+                alt="Paneer Paratha Meal Box"
+                class="food-image"
+              />
+              <div class="image-placeholder">
+                <i class="fas fa-bread-slice"></i>
+                <span>Meal Box</span>
+              </div>
+              <div class="nutrition-badge">
+                <i class="fas fa-cheese"></i>
+                <span>High Protein</span>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3 class="menu-title">Paneer Paratha Meal Box</h3>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="menu-description">
+                Whole wheat parathas stuffed with fresh paneer, served with
+                curd, butter, and seasonal vegetables. High in calcium and
+                protein.
+              </p>
+              <div class="ingredients">
+                <span class="ingredient-tag">Paneer</span>
+                <span class="ingredient-tag">Wheat</span>
+                <span class="ingredient-tag">Curd</span>
+              </div>
+              <div class="menu-footer">
+                <div class="price-section">
+                  <div class="menu-price">179</div>
+                  <span class="price-label">Per Box</span>
+                </div>
+                <button class="add-to-cart" data-item="paneer-paratha">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Order Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mixed Vegetable Khichdi -->
+          <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="menu-image">
+              <img
+                src="img/3.jpeg"
+                alt="Mixed Vegetable Khichdi"
+                class="food-image"
+              />
+              <div class="image-placeholder">
+                <i class="fas fa-seedling"></i>
+                <span>Meal Box</span>
+              </div>
+              <div class="nutrition-badge">
+                <i class="fas fa-heart"></i>
+                <span>Easy Digest</span>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3 class="menu-title">Mixed Vegetable Khichdi</h3>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="menu-description">
+                Comfort food made with rice, moong dal, and seasonal vegetables.
+                Easy to digest, nutritious, and perfect for growing kids.
+              </p>
+              <div class="ingredients">
+                <span class="ingredient-tag">Rice</span>
+                <span class="ingredient-tag">Moong Dal</span>
+                <span class="ingredient-tag">Veggies</span>
+              </div>
+              <div class="menu-footer">
+                <div class="price-section">
+                  <div class="menu-price">129</div>
+                  <span class="price-label">Per Box</span>
+                </div>
+                <button class="add-to-cart" data-item="khichdi">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Order Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quinoa Veggie Bowl -->
+          <div class="menu-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="menu-image">
+              <img
+                src="img/4.jpeg"
+                alt="Quinoa Veggie Bowl"
+                class="food-image"
+              />
+              <div class="image-placeholder">
+                <i class="fas fa-leaf"></i>
+                <span>Meal Box</span>
+              </div>
+              <div class="nutrition-badge">
+                <i class="fas fa-star"></i>
+                <span>Superfood</span>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3 class="menu-title">Quinoa Veggie Bowl</h3>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="menu-description">
+                Protein-rich quinoa cooked with colorful vegetables, nuts, and
+                herbs. A superfood meal packed with complete amino acids and
+                vitamins.
+              </p>
+              <div class="ingredients">
+                <span class="ingredient-tag">Quinoa</span>
+                <span class="ingredient-tag">Nuts</span>
+                <span class="ingredient-tag">Herbs</span>
+              </div>
+              <div class="menu-footer">
+                <div class="price-section">
+                  <div class="menu-price">199</div>
+                  <span class="price-label">Per Box</span>
+                </div>
+                <button class="add-to-cart" data-item="quinoa-bowl">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Order Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Traditional Thali Box -->
+          <div class="menu-card" data-aos="fade-up" data-aos-delay="500">
+            <div class="menu-image">
+              <img
+                src="img/5.jpeg"
+                alt="Traditional Thali Box"
+                class="food-image"
+              />
+              <div class="image-placeholder">
+                <i class="fas fa-utensils"></i>
+                <span>Meal Box</span>
+              </div>
+              <div class="nutrition-badge">
+                <i class="fas fa-balance-scale"></i>
+                <span>Balanced</span>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3 class="menu-title">Traditional Thali Box</h3>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="menu-description">
+                Complete balanced meal with roti, seasonal sabzi, dal, rice, and
+                salad. Traditional flavors with modern nutrition science.
+              </p>
+              <div class="ingredients">
+                <span class="ingredient-tag">Roti</span>
+                <span class="ingredient-tag">Dal</span>
+                <span class="ingredient-tag">Sabzi</span>
+              </div>
+              <div class="menu-footer">
+                <div class="price-section">
+                  <div class="menu-price">169</div>
+                  <span class="price-label">Per Box</span>
+                </div>
+                <button class="add-to-cart" data-item="thali-box">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Order Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Brown Rice Rajma Bowl -->
+          <div class="menu-card" data-aos="fade-up" data-aos-delay="600">
+            <div class="menu-image">
+              <img
+                src="img/6.webp"
+                alt="Brown Rice Rajma Bowl"
+                class="food-image"
+              />
+              <div class="image-placeholder">
+                <i class="fas fa-bowl-rice"></i>
+                <span>Meal Box</span>
+              </div>
+              <div class="nutrition-badge">
+                <i class="fas fa-dumbbell"></i>
+                <span>High Iron</span>
+              </div>
+            </div>
+            <div class="menu-content">
+              <div class="menu-header">
+                <h3 class="menu-title">Brown Rice Rajma Bowl</h3>
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <p class="menu-description">
+                Hearty kidney beans curry served with fiber-rich brown rice,
+                pickled onions, and mint chutney. High in protein and iron.
+              </p>
+              <div class="ingredients">
+                <span class="ingredient-tag">Rajma</span>
+                <span class="ingredient-tag">Brown Rice</span>
+                <span class="ingredient-tag">Chutney</span>
+              </div>
+              <div class="menu-footer">
+                <div class="price-section">
+                  <div class="menu-price">159</div>
+                  <span class="price-label">Per Box</span>
+                </div>
+                <button class="add-to-cart" data-item="rajma-bowl">
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Order Now</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">Testimonials</span>
+          <h2 class="section-title">What Parents Are Saying</h2>
+          <p class="section-description">
+            Real feedback from families who trust Bunny Bites for their
+            children's nutrition and happiness.
+          </p>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "My kids actually ask for the veggie burgers! As a working mom,
+              Bunny Bites has been a lifesaver for nutritious meals without the
+              hassle."
+            </p>
+            <div class="testimonial-author">- Priya S., Mother of 2</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Finally found a meal service that cares about ingredients as much
+              as I do. The transparency about sourcing gives me peace of mind."
+            </p>
+            <div class="testimonial-author">- Rahul M., Father of 1</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "The portion sizes are perfect and my daughter loves the colorful
+              presentations. It's made mealtime so much more enjoyable for our
+              family."
+            </p>
+            <div class="testimonial-author">- Anjali K., Mother of 3</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">
+              "Delivery is always on time and the packaging keeps everything
+              fresh. My son especially loves the fruit bowls and smoothies!"
+            </p>
+            <div class="testimonial-author">- Vikram P., Father of 2</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="section-container">
+        <h2 class="section-title">Ready to Make Mealtime Magic?</h2>
+        <p class="section-description">
+          Join thousands of families who trust Bunny Bites for nutritious,
+          convenient meals their kids love.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <h4>Call Us</h4>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <h4>Email Us</h4>
+            <p>hello@bunnybites.com</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-clock"></i>
+            <h4>Delivery Hours</h4>
+            <p>Daily 8AM - 8PM</p>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <h4>Service Area</h4>
+            <p>Jaipur & Nearby Areas</p>
+          </div>
+        </div>
+        <div class="contact-actions">
+          <a href="tel:+919876543210" class="btn-primary">
+            <i class="fas fa-phone"></i>
+            Order Now
+          </a>
+          <a href="#menu" class="btn-secondary">
+            <i class="fas fa-utensils"></i>
+            View Menu
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="section-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <a href="#home" class="logo">
+                <img
+                  src="img/logo.png"
+                  alt="Bunny Bites Logo"
+                  class="logo-image"
+                />
+              </a>
+            </div>
+            <p>From Cravings to Comfort, Carefully Crafted</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h4>Follow Us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Bunny Bites. All rights reserved.</p>
+          <p>
+            Designed with <i class="fas fa-heart"></i> by
+            <a href="">Shivdutt Karwa</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
