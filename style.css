@@ -4,24 +4,21 @@
 /* === BUNNY TOGGLE BUTTON === */
 .mobile-menu-toggle {
   display: none;
-  width: 52px;
-  height: 52px;
-  background: linear-gradient(145deg, #ffa726 0%, #ff9800 50%, #f57c00 100%);
+  width: 42px;
+  height: 42px;
+  background: url(../img/open1.png) no-repeat center var(--bunny-yellow);
+  background-size: 2rem;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
   z-index: 9000;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 2px solid rgba(255, 255, 255, 0.2);
   pointer-events: auto;
 }
 
@@ -32,19 +29,12 @@
   left: 2px;
   right: 2px;
   height: 45%;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.3) 0%,
-    transparent 100%
-  );
-  border-radius: 50% 50% 20% 20%;
-  pointer-events: none;
+  /* background: rgba(255, 255, 255, 0.3);
+  pointer-events: none;*/
 }
 
 .mobile-menu-toggle:hover {
   transform: scale(1.08) translateY(-1px);
-  box-shadow: 0 6px 16px rgba(255, 152, 0, 0.4), 0 3px 8px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 /* HIDE original bunny toggle when menu is active */
@@ -68,7 +58,6 @@
   width: 20px;
   height: 16px;
   transition: all 0.6s ease;
-
   /* Center within the button */
   display: flex;
   flex-direction: column;
@@ -99,6 +88,9 @@
   bottom: 0;
 }
 
+.hamburger-bunny .line {
+  display: none;
+}
 /* === BUNNY TRANSFORMATION === */
 .mobile-menu-toggle.active .line-1 {
   /* Left ear */
@@ -244,12 +236,11 @@
   right: 15px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(145deg, #e53935 0%, #d32f2f 50%, #c62828 100%);
+  background: url(../img/close2.png) no-repeat center var(--bunny-yellow);
+  background-size: 1.5rem;
   border: none;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
   z-index: 9001; /* Above menu panel */
 
@@ -285,7 +276,7 @@
 .close-bunny {
   font-size: 1.5rem;
   animation: bounce 2s ease-in-out infinite;
-  display: block;
+  display: none;
 }
 
 .close-icon {
@@ -553,13 +544,12 @@
 .menu-logo {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
 
 .menu-logo-image {
-  height: 50px;
+  height: 40px;
   width: auto;
   transition: all 0.3s ease;
   order: 1; /* Logo comes first */
