@@ -6,7 +6,7 @@
   display: none;
   width: 42px;
   height: 42px;
-  background: url(../img/open1.png) no-repeat center var(--bunny-yellow);
+  background: url(img/open1.png) no-repeat center var(--bunny-yellow);
   background-size: 2rem;
   border: none;
   border-radius: 50%;
@@ -59,7 +59,7 @@
   height: 16px;
   transition: all 0.6s ease;
   /* Center within the button */
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -234,9 +234,9 @@
   position: absolute;
   top: 15px;
   right: 15px;
-  width: 50px;
-  height: 50px;
-  background: url(../img/close2.png) no-repeat center var(--bunny-yellow);
+  width: 42px;
+  height: 42px;
+  background: url(img/close2.png) no-repeat center var(--bunny-yellow);
   background-size: 1.5rem;
   border: none;
   border-radius: 50%;
@@ -299,7 +299,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  width: 100%; /* Full screen width */
+  width: 94%; /* Full screen width */
   max-width: none; /* Remove max-width constraint */
   height: 100vh;
   background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream) 100%);
@@ -545,7 +545,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0;
 }
 
 .menu-logo-image {
@@ -2339,6 +2339,10 @@ body::before {
   .menu-header {
     flex-direction: column;
     gap: 0.5rem;
+    padding: 0 1rem;
+    min-height: 70px;
+    align-items: flex-start;
+    justify-content: center;
   }
 
   .menu-footer {
