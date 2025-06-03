@@ -4,43 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bunny Bites - From Cravings to Comfort, Carefully Crafted</title>
+
+    <!-- Font Awesome Icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fredoka:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <!-- ===== ENHANCED MOBILE MENU SYSTEM START ===== -->
+    <!-- ===== MOBILE MENU SYSTEM ===== -->
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
 
-    <!-- Mobile Menu Panel with Kids Animation -->
+    <!-- Mobile Menu Panel -->
     <nav class="mobile-menu-panel" id="mobile-menu-panel">
-      <!-- Use existing floating toys for decorations -->
+      <!-- Menu Decorations -->
       <div class="menu-decorations">
-        <!-- Use existing floating toys for decorations -->
-        <div class="menu-decorations">
-          <!-- Floating toys inside mobile menu -->
-          <div class="menu-floating-toy menu-toy-1">
-            <i class="fas fa-rabbit"></i>
-          </div>
-          <div class="menu-floating-toy menu-toy-2">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <div class="menu-floating-toy menu-toy-3">
-            <i class="fas fa-car"></i>
-          </div>
-          <div class="menu-floating-toy menu-toy-4">
-            <i class="fas fa-gamepad"></i>
-          </div>
-          <div class="menu-floating-toy menu-toy-5">
-            <i class="fas fa-basketball-ball"></i>
-          </div>
+        <div class="menu-floating-toy menu-toy-1">
+          <i class="fas fa-rabbit"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-2">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-3">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-4">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-5">
+          <i class="fas fa-basketball-ball"></i>
         </div>
       </div>
 
@@ -49,9 +52,7 @@
         class="menu-close-btn"
         id="menu-close-btn"
         aria-label="Close menu"
-      >
-        <span class="close-icon">×</span>
-      </button>
+      ></button>
 
       <!-- Menu Header -->
       <div class="menu-header">
@@ -66,65 +67,51 @@
 
       <!-- Menu Items -->
       <ul class="menu-items">
-        <li class="menu-item" data-delay="0.1">
+        <li class="menu-item">
           <a href="#home" class="menu-link">
             <div class="menu-icon">🏠</div>
             <span>Home</span>
             <div class="menu-arrow">→</div>
           </a>
         </li>
-        <li class="menu-item" data-delay="0.2">
+        <li class="menu-item">
           <a href="#about" class="menu-link">
             <div class="menu-icon">🌱</div>
             <span>About</span>
             <div class="menu-arrow">→</div>
           </a>
         </li>
-        <li class="menu-item" data-delay="0.3">
+        <li class="menu-item">
           <a href="#how-it-works" class="menu-link">
             <div class="menu-icon">⚙️</div>
             <span>How It Works</span>
             <div class="menu-arrow">→</div>
           </a>
         </li>
-        <li class="menu-item" data-delay="0.4">
+        <li class="menu-item">
           <a href="#menu" class="menu-link">
             <div class="menu-icon">🍱</div>
             <span>Menu</span>
             <div class="menu-arrow">→</div>
           </a>
         </li>
-        <li class="menu-item" data-delay="0.5">
-          <a href="#about" class="menu-link">
-            <div class="menu-icon">🌱</div>
-            <span>About</span>
+        <li class="menu-item">
+          <a href="#testimonials" class="menu-link">
+            <div class="menu-icon">⭐</div>
+            <span>Reviews</span>
             <div class="menu-arrow">→</div>
           </a>
         </li>
-        <li class="menu-item" data-delay="0.6">
-          <a href="#nutrition" class="menu-link">
-            <div class="menu-icon">💚</div>
-            <span>Nutrition</span>
-            <div class="menu-arrow">→</div>
-          </a>
-        </li>
-        <li class="menu-item" data-delay="0.7">
+        <li class="menu-item">
           <a href="#contact" class="menu-link">
-            <div class="menu-icon">📞</div>
+            <div class="menu-icon">💚</div>
             <span>Contact</span>
-            <div class="menu-arrow">→</div>
-          </a>
-        </li>
-        <li class="menu-item" data-delay="0.8">
-          <a href="#contact" class="menu-link special-item">
-            <div class="menu-icon">🛒</div>
-            <span>Order Now</span>
             <div class="menu-arrow">→</div>
           </a>
         </li>
       </ul>
 
-      <!-- Fun Footer -->
+      <!-- Fun Footer - FIXED -->
       <div class="menu-footer">
         <div class="fun-message">
           <span class="message-icon">🎉</span>
@@ -138,8 +125,8 @@
         </div>
       </div>
     </nav>
-    <!-- ===== ENHANCED MOBILE MENU SYSTEM END ===== -->
 
+    <!-- ===== UTILITY BUTTONS ===== -->
     <!-- Back to Top Button -->
     <button class="back-to-top" id="back-to-top" title="Back to top">
       <i class="fas fa-arrow-up"></i>
@@ -150,7 +137,7 @@
       <i class="fas fa-eye"></i>
     </button>
 
-    <!-- Floating Toys Throughout Page -->
+    <!-- ===== FLOATING TOYS ===== -->
     <div class="page-toys">
       <div class="floating-toy toy-1">
         <i class="fas fa-rabbit"></i>
@@ -193,7 +180,7 @@
       </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- ===== NAVIGATION ===== -->
     <nav class="navbar" id="navbar">
       <div class="nav-container">
         <a href="#home" class="logo">
@@ -203,6 +190,7 @@
             class="logo-image"
           />
         </a>
+
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -211,46 +199,21 @@
           <li><a href="#testimonials">Reviews</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+
         <div class="nav-right">
           <a href="#contact" class="cta-button">Order Now</a>
 
-          <!-- ===== BUNNY TOGGLE BUTTON START ===== -->
-          <!-- Enhanced hamburger button that transforms to bunny -->
+          <!-- Mobile Menu Toggle Button -->
           <button
             class="mobile-menu-toggle"
             id="mobile-menu-toggle"
             aria-label="Toggle Menu"
-          >
-            <!-- Hamburger Lines Container -->
-            <div class="hamburger-bunny">
-              <!-- Top line becomes left ear -->
-              <span class="line line-1"></span>
-              <!-- Middle line becomes right ear -->
-              <span class="line line-2"></span>
-              <!-- Bottom line becomes face base -->
-              <span class="line line-3"></span>
-
-              <!-- Bunny facial features (hidden initially) -->
-              <div class="bunny-face">
-                <div class="bunny-eyes">
-                  <div class="eye eye-left"></div>
-                  <div class="eye eye-right"></div>
-                </div>
-                <div class="bunny-nose"></div>
-                <div class="bunny-mouth"></div>
-                <div class="bunny-cheeks">
-                  <div class="cheek cheek-left"></div>
-                  <div class="cheek cheek-right"></div>
-                </div>
-              </div>
-            </div>
-          </button>
-          <!-- ===== BUNNY TOGGLE BUTTON END ===== -->
+          ></button>
         </div>
       </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO SECTION ===== -->
     <section class="hero" id="home">
       <div class="hero-container">
         <div class="hero-content">
@@ -302,7 +265,6 @@
           <!-- Main Hero Image Container -->
           <div class="hero-image-container">
             <div class="hero-image-wrapper">
-              <!-- Replace this div with your actual image -->
               <img
                 src="img/hero-1.jpeg"
                 alt="Delicious Kids Meal"
@@ -330,7 +292,7 @@
       </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- ===== FEATURES SECTION ===== -->
     <section class="features" id="about">
       <div class="section-container">
         <div class="section-header">
@@ -390,7 +352,7 @@
       </div>
     </section>
 
-    <!-- How It Works Section -->
+    <!-- ===== HOW IT WORKS SECTION ===== -->
     <section class="how-it-works" id="how-it-works">
       <div class="section-container">
         <div class="section-header">
@@ -452,7 +414,7 @@
       </div>
     </section>
 
-    <!-- Menu Section -->
+    <!-- ===== MENU SECTION ===== -->
     <section class="menu" id="menu">
       <div class="section-container">
         <div class="section-header">
@@ -468,7 +430,7 @@
 
         <div class="menu-grid">
           <!-- Vegetable Pulao Meal Box -->
-          <div class="menu-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="menu-card">
             <div class="menu-image">
               <img
                 src="img/1.jpeg"
@@ -518,7 +480,7 @@
           </div>
 
           <!-- Paneer Paratha Meal Box -->
-          <div class="menu-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="menu-card">
             <div class="menu-image">
               <img
                 src="img/2.jpeg"
@@ -569,7 +531,7 @@
           </div>
 
           <!-- Mixed Vegetable Khichdi -->
-          <div class="menu-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="menu-card">
             <div class="menu-image">
               <img
                 src="img/3.jpeg"
@@ -619,7 +581,7 @@
           </div>
 
           <!-- Quinoa Veggie Bowl -->
-          <div class="menu-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="menu-card">
             <div class="menu-image">
               <img
                 src="img/4.jpeg"
@@ -670,7 +632,7 @@
           </div>
 
           <!-- Traditional Thali Box -->
-          <div class="menu-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="menu-card">
             <div class="menu-image">
               <img
                 src="img/5.jpeg"
@@ -720,7 +682,7 @@
           </div>
 
           <!-- Brown Rice Rajma Bowl -->
-          <div class="menu-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="menu-card">
             <div class="menu-image">
               <img
                 src="img/6.webp"
@@ -772,7 +734,7 @@
       </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- ===== TESTIMONIALS SECTION ===== -->
     <section class="testimonials" id="testimonials">
       <div class="section-container">
         <div class="section-header">
@@ -846,7 +808,7 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section class="contact" id="contact">
       <div class="section-container">
         <h2 class="section-title">Ready to Make Mealtime Magic?</h2>
@@ -889,7 +851,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
       <div class="section-container">
         <div class="footer-content">
@@ -918,9 +880,15 @@
             <div class="footer-column">
               <h4>Follow Us</h4>
               <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Facebook"
+                  ><i class="fab fa-facebook"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="fab fa-twitter"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -929,12 +897,13 @@
           <p>&copy; 2025 Bunny Bites. All rights reserved.</p>
           <p>
             Designed with <i class="fas fa-heart"></i> by
-            <a href="">Shivdutt Karwa</a>
+            <a href="#">Shivdutt Karwa</a>
           </p>
         </div>
       </div>
     </footer>
 
+    <!-- ===== JAVASCRIPT ===== -->
     <script src="script.js"></script>
   </body>
 </html>
