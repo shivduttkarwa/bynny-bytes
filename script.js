@@ -1,6 +1,253 @@
-// Enhanced JavaScript for Bunny Bites Website
+// ===== FIXED MOBILE MENU TOGGLE FUNCTIONALITY =====
+// Complete rewrite to fix double-click issue and z-index problems
 
-// DOM Content Loaded
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // === MOBILE MENU VARIABLES ===
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenuPanel = document.getElementById('mobile-menu-panel');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const menuCloseBtn = document.getElementById('menu-close-btn');
+    const menuItems = document.querySelectorAll('.menu-item');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    
+    let isMenuOpen = false;
+    let scrollPosition = 0;
+    let isAnimating = false; // Prevent multiple clicks during animation
+
+    // Only proceed if bunny toggle elements exist
+    if (!mobileMenuToggle || !mobileMenuPanel || !mobileMenuOverlay) {
+        console.log('Bunny toggle elements not found, skipping initialization');
+        return;
+    }
+
+    // === SINGLE TOGGLE FUNCTION ===
+    function toggleMobileMenu(event) {
+        // Prevent default and stop propagation
+        if (event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        
+        // Prevent multiple clicks during animation
+        if (isAnimating) {
+            console.log('Animation in progress, ignoring click');
+            return;
+        }
+        
+        isAnimating = true;
+        
+        if (isMenuOpen) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+        
+        // Reset animation flag after transition
+        setTimeout(() => {
+            isAnimating = false;
+        }, 700); // Slightly longer than CSS transition
+    }
+
+    // === OPEN MENU FUNCTION ===
+    function openMobileMenu() {
+        console.log('🐰 Opening bunny menu...');
+        
+        // Store current scroll position
+        scrollPosition = window.pageYOffset;
+        
+        // Set state first
+        isMenuOpen = true;
+        
+        // Add active classes for animations
+        mobileMenuToggle.classList.add('active');
+        mobileMenuPanel.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        
+        // Lock body scroll
+        document.body.classList.add('menu-open');
+        document.body.style.top = `-${scrollPosition}px`;
+        
+        // Update accessibility
+        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+        
+        // Stagger animate menu items
+        menuItems.forEach((item, index) => {
+            setTimeout(() => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            }, 100);
+        });
+        
+        console.log('✅ Bunny menu opened successfully!');
+    }
+
+    // === CLOSE MENU FUNCTION ===
+    function closeMobileMenu() {
+        console.log('🍔 Closing bunny menu...');
+        
+        // Set state first
+        isMenuOpen = false;
+        
+        // Remove active classes
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuPanel.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        
+        // Unlock body scroll and restore position
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+        
+        // Update accessibility
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        
+        // Reset menu item delays
+        menuItems.forEach(item => {
+            item.style.transitionDelay = '0s';
+        });
+        
+        console.log('✅ Bunny menu closed successfully!');
+    }
+
+    // === SINGLE EVENT LISTENER SETUP ===
+    function setupEventListeners() {
+        
+        // Remove any existing listeners first
+        mobileMenuToggle.removeEventListener('click', toggleMobileMenu);
+        mobileMenuToggle.removeEventListener('touchstart', toggleMobileMenu);
+        
+        // Add single click listener
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu, { passive: false });
+        
+        // Close button listener
+        if (menuCloseBtn) {
+            menuCloseBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (isMenuOpen && !isAnimating) {
+                    toggleMobileMenu();
+                }
+            });
+        }
+        
+        // Prevent double-tap zoom on mobile
+        mobileMenuToggle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        }, { passive: false });
+        
+        // Overlay click to close menu
+        mobileMenuOverlay.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (isMenuOpen && !isAnimating) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Menu link clicks
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Add click animation
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Close menu after link click
+                setTimeout(() => {
+                    if (isMenuOpen && !isAnimating) {
+                        toggleMobileMenu();
+                    }
+                }, 300);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // ESC key to close menu
+            if (e.key === 'Escape' && isMenuOpen && !isAnimating) {
+                toggleMobileMenu();
+            }
+            
+            // Enter or Space on hamburger button
+            if ((e.key === 'Enter' || e.key === ' ') && e.target === mobileMenuToggle) {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
+
+        console.log('📱 Event listeners set up successfully');
+    }
+
+    // === RESIZE HANDLER ===
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            // Close menu if window becomes wide enough
+            if (window.innerWidth > 768 && isMenuOpen && !isAnimating) {
+                closeMobileMenu();
+            }
+        }, 250);
+    });
+
+    // === TOUCH GESTURES ===
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    // Swipe to close menu (swipe right since menu comes from right)
+    mobileMenuPanel.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    mobileMenuPanel.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipeGesture();
+    }, { passive: true });
+
+    function handleSwipeGesture() {
+        const swipeDistance = touchEndX - touchStartX;
+        const minSwipeDistance = 100;
+        
+        // Swipe right to close menu (since menu slides from right)
+        if (swipeDistance > minSwipeDistance && isMenuOpen && !isAnimating) {
+            toggleMobileMenu();
+            console.log('👉 Menu closed by swipe gesture');
+        }
+    }
+
+    // === INITIALIZATION ===
+    function initializeBunnyMenu() {
+        // Set initial ARIA attributes
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        mobileMenuToggle.setAttribute('aria-label', 'Toggle mobile menu');
+        
+        // Ensure menu starts closed
+        isMenuOpen = false;
+        isAnimating = false;
+        
+        // Remove any active classes
+        mobileMenuToggle.classList.remove('active');
+        mobileMenuPanel.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        
+        // Setup event listeners
+        setupEventListeners();
+        
+        console.log('🚀 Bunny toggle initialized successfully!');
+        console.log('📋 Menu state: closed, Animation: ready');
+    }
+
+    // Initialize the bunny menu system
+    initializeBunnyMenu();
+    
+}); // End of bunny menu DOMContentLoaded
+
+// ===== ENHANCED MOBILE MENU TOGGLE FUNCTIONALITY END =====
+
+// ===== EXISTING WEBSITE FUNCTIONALITY START =====
+// Enhanced JavaScript for Bunny Bites Website (keeping all existing functionality)
+
+// DOM Content Loaded for existing functionality
 document.addEventListener('DOMContentLoaded', function() {
     initializeWebsite();
 });
@@ -18,13 +265,10 @@ function initializeWebsite() {
     setupBackToTop();
 }
 
-// Navigation functionality
+// Navigation functionality (updated to work with new mobile menu)
 function setupNavigation() {
     const navbar = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-links a');
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-links');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
     
     // Navbar scroll effect
     let lastScrollTop = 0;
@@ -39,45 +283,6 @@ function setupNavigation() {
         
         lastScrollTop = scrollTop;
     }, 16));
-
-    // Mobile menu toggle
-    if (mobileMenuToggle && navMenu && mobileMenuOverlay) {
-        mobileMenuToggle.addEventListener('click', function() {
-            const isOpen = navMenu.classList.contains('mobile-open');
-            
-            if (isOpen) {
-                // Close menu
-                navMenu.classList.remove('mobile-open');
-                mobileMenuOverlay.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            } else {
-                // Open menu
-                navMenu.classList.add('mobile-open');
-                mobileMenuOverlay.classList.add('active');
-                mobileMenuToggle.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        });
-
-        // Close mobile menu when clicking on overlay
-        mobileMenuOverlay.addEventListener('click', function() {
-            navMenu.classList.remove('mobile-open');
-            mobileMenuOverlay.classList.remove('active');
-            mobileMenuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        });
-
-        // Close mobile menu when clicking on links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('mobile-open');
-                mobileMenuOverlay.classList.remove('active');
-                mobileMenuToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            });
-        });
-    }
 
     // Smooth scrolling for navigation links
     navLinks.forEach(link => {
@@ -102,7 +307,7 @@ function setupNavigation() {
     });
 }
 
-// Hero section animations (simplified for classic feel)
+// Hero section animations
 function setupHeroAnimations() {
     const heroElements = {
         badge: document.querySelector('.hero-badge'),
@@ -150,19 +355,15 @@ function setupHeroAnimations() {
 
     statNumbers.forEach(stat => observer.observe(stat));
 
-    // Enhanced toy animations (diverse patterns across full screen)
+    // Enhanced toy animations
     const toys = document.querySelectorAll('.floating-toy');
     toys.forEach((toy, index) => {
-        // Each toy already has its unique animation pattern defined in CSS
-        // Just add interaction enhancements
         toy.style.animationTimingFunction = 'cubic-bezier(0.4, 0, 0.6, 1)';
         
-        // Elegant hover interaction that doesn't interfere with movement
         toy.addEventListener('mouseenter', function() {
             this.style.opacity = '0.8';
             this.style.filter = 'drop-shadow(0 4px 8px rgba(0,0,0,0.2)) scale(1.2)';
             this.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-            // Don't pause animation to keep the flowing movement
         });
         
         toy.addEventListener('mouseleave', function() {
@@ -184,10 +385,8 @@ function setupScrollAnimations() {
             if (entry.isIntersecting) {
                 const element = entry.target;
                 
-                // Add animation class
                 element.classList.add('animate-in');
                 
-                // Staggered animation for grid items
                 if (element.parentElement.classList.contains('features-grid') ||
                     element.parentElement.classList.contains('menu-grid') ||
                     element.parentElement.classList.contains('testimonials-grid')) {
@@ -202,7 +401,6 @@ function setupScrollAnimations() {
         });
     }, observerOptions);
 
-    // Observe elements for animation
     const animatedElements = document.querySelectorAll(
         '.feature-card, .menu-card, .testimonial-card, .section-header, .contact-item'
     );
@@ -214,7 +412,6 @@ function setupScrollAnimations() {
         animationObserver.observe(element);
     });
 
-    // Add CSS class for animated elements
     const style = document.createElement('style');
     style.textContent = `
         .animate-in {
@@ -230,7 +427,6 @@ function setupMenuFiltering() {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const menuCards = document.querySelectorAll('.menu-card');
 
-    // Initialize all cards as visible
     menuCards.forEach(card => {
         card.style.display = 'block';
         card.classList.remove('hidden');
@@ -240,16 +436,13 @@ function setupMenuFiltering() {
         button.addEventListener('click', function() {
             const category = this.dataset.category;
             
-            // Update active button
             categoryButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
             
-            // Filter menu cards with smooth transition
             filterMenuItems(category, menuCards);
         });
     });
 
-    // Add to cart functionality
     const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -259,14 +452,12 @@ function setupMenuFiltering() {
     });
 }
 
-// Enhanced filter menu items function
 function filterMenuItems(category, menuCards) {
     menuCards.forEach((card, index) => {
         const cardCategory = card.dataset.category;
         const shouldShow = category === 'all' || cardCategory === category;
         
         if (shouldShow) {
-            // Show the card with animation
             card.style.display = 'block';
             setTimeout(() => {
                 card.classList.remove('hidden');
@@ -274,7 +465,6 @@ function filterMenuItems(category, menuCards) {
                 card.style.transform = 'scale(1)';
             }, index * 50);
         } else {
-            // Hide the card with animation
             card.classList.add('hidden');
             card.style.opacity = '0';
             card.style.transform = 'scale(0.8)';
@@ -289,7 +479,6 @@ function filterMenuItems(category, menuCards) {
 
 // Interactive elements
 function setupInteractiveElements() {
-    // Button hover effects
     const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .cta-button, .add-to-cart');
     buttons.forEach(button => {
         button.addEventListener('click', function(e) {
@@ -305,436 +494,12 @@ function setupInteractiveElements() {
         });
     });
 
-    // Feature card interactions
     const featureCards = document.querySelectorAll('.feature-card');
     featureCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             createParticleEffect(this);
         });
     });
-
-    // Menu card hover effects
-  // Menu functionality and interactions
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Initialize menu interactions
-    initializeMenuCards();
-    initializeOrderButtons();
-    initializeAnimations();
-    initializeScrollEffects();
-    
-    // Menu card hover effects and interactions
-    function initializeMenuCards() {
-        const menuCards = document.querySelectorAll('.menu-card');
-        
-        menuCards.forEach(card => {
-            // Enhanced hover effect with sound (if available)
-            card.addEventListener('mouseenter', function() {
-                this.style.setProperty('--hover-scale', '1.05');
-                addRippleEffect(this);
-                
-                // Add subtle vibration effect on mobile
-                if ('vibrate' in navigator) {
-                    navigator.vibrate(50);
-                }
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.setProperty('--hover-scale', '1');
-            });
-            
-            // Card click interaction
-            card.addEventListener('click', function(e) {
-                if (!e.target.closest('.add-to-cart')) {
-                    showQuickView(this);
-                }
-            });
-        });
-    }
-    
-    // Add ripple effect to cards
-    function addRippleEffect(element) {
-        const ripple = document.createElement('div');
-        ripple.className = 'ripple-effect';
-        ripple.style.cssText = `
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: rgba(183, 28, 28, 0.3);
-            border-radius: 50%;
-            pointer-events: none;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            top: 50%;
-            left: 50%;
-            margin-left: -5px;
-            margin-top: -5px;
-            z-index: 1000;
-        `;
-        
-        element.style.position = 'relative';
-        element.appendChild(ripple);
-        
-        // Add ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(20);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        setTimeout(() => {
-            ripple.remove();
-        }, 600);
-    }
-    
-    // Order button functionality
-    function initializeOrderButtons() {
-        const orderButtons = document.querySelectorAll('.add-to-cart');
-        
-        orderButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const itemName = this.dataset.item;
-                handleOrder(itemName, this);
-            });
-        });
-    }
-    
-    // Handle order process
-    function handleOrder(itemName, button) {
-        // Add loading state
-        const originalContent = button.innerHTML;
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i><span>Adding...</span>';
-        button.disabled = true;
-        
-        // Simulate order processing
-        setTimeout(() => {
-            button.innerHTML = '<i class="fas fa-check"></i><span>Added!</span>';
-            button.style.background = 'linear-gradient(135deg, #4caf50 0%, #388e3c 100%)';
-            
-            // Show success notification
-            showNotification(`${formatItemName(itemName)} added to cart!`, 'success');
-            
-            // Reset button after 2 seconds
-            setTimeout(() => {
-                button.innerHTML = originalContent;
-                button.disabled = false;
-                button.style.background = '';
-            }, 2000);
-            
-        }, 1000);
-    }
-    
-    // Format item name for display
-    function formatItemName(itemName) {
-        return itemName.split('-').map(word => 
-            word.charAt(0).toUpperCase() + word.slice(1)
-        ).join(' ');
-    }
-    
-    // Show notification
-    function showNotification(message, type = 'info') {
-        // Remove existing notifications
-        const existingNotifications = document.querySelectorAll('.notification');
-        existingNotifications.forEach(notif => notif.remove());
-        
-        const notification = document.createElement('div');
-        notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'info-circle'}"></i>
-            <span>${message}</span>
-            <button class="notification-close">
-                <i class="fas fa-times"></i>
-            </button>
-        `;
-        
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: ${type === 'success' ? 'var(--bunny-green)' : 'var(--bunny-red)'};
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 10px;
-            box-shadow: var(--shadow-medium);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            z-index: 10000;
-            transform: translateX(400px);
-            transition: transform 0.3s ease;
-            max-width: 350px;
-            font-weight: 600;
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Close button functionality
-        const closeBtn = notification.querySelector('.notification-close');
-        closeBtn.addEventListener('click', () => {
-            notification.style.transform = 'translateX(400px)';
-            setTimeout(() => notification.remove(), 300);
-        });
-        
-        // Auto remove after 4 seconds
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.style.transform = 'translateX(400px)';
-                setTimeout(() => notification.remove(), 300);
-            }
-        }, 4000);
-    }
-    
-    // Quick view modal
-    function showQuickView(card) {
-        const title = card.querySelector('.menu-title').textContent;
-        const description = card.querySelector('.menu-description').textContent;
-        const price = card.querySelector('.menu-price').textContent;
-        const ingredients = Array.from(card.querySelectorAll('.ingredient-tag')).map(tag => tag.textContent);
-        
-        const modal = document.createElement('div');
-        modal.className = 'quick-view-modal';
-        modal.innerHTML = `
-            <div class="modal-overlay"></div>
-            <div class="modal-content">
-                <button class="modal-close">
-                    <i class="fas fa-times"></i>
-                </button>
-                <h3>${title}</h3>
-                <p>${description}</p>
-                <div class="modal-ingredients">
-                    <h4>Ingredients:</h4>
-                    <div class="ingredients-list">
-                        ${ingredients.map(ing => `<span class="ingredient-badge">${ing}</span>`).join('')}
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <div class="modal-price">₹${price}</div>
-                    <button class="modal-order-btn">Order Now</button>
-                </div>
-            </div>
-        `;
-        
-        modal.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 10000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-        
-        // Add modal styles
-        const modalStyle = document.createElement('style');
-        modalStyle.textContent = `
-            .modal-overlay {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.7);
-                backdrop-filter: blur(5px);
-            }
-            .modal-content {
-                background: white;
-                padding: 2rem;
-                border-radius: 20px;
-                max-width: 500px;
-                width: 90%;
-                position: relative;
-                transform: scale(0.8);
-                transition: transform 0.3s ease;
-            }
-            .modal-close {
-                position: absolute;
-                top: 1rem;
-                right: 1rem;
-                background: none;
-                border: none;
-                font-size: 1.5rem;
-                cursor: pointer;
-                color: var(--light-text);
-            }
-            .modal-ingredients h4 {
-                margin: 1.5rem 0 0.5rem 0;
-                color: var(--dark-text);
-            }
-            .ingredients-list {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 0.5rem;
-            }
-            .ingredient-badge {
-                background: var(--cream);
-                color: var(--bunny-green);
-                padding: 0.3rem 0.8rem;
-                border-radius: 15px;
-                font-size: 0.8rem;
-                font-weight: 600;
-            }
-            .modal-footer {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-top: 2rem;
-                padding-top: 1rem;
-                border-top: 1px solid var(--cream);
-            }
-            .modal-price {
-                font-size: 1.8rem;
-                font-weight: 800;
-                color: var(--bunny-red);
-            }
-            .modal-order-btn {
-                background: var(--bunny-green);
-                color: white;
-                border: none;
-                padding: 0.8rem 1.5rem;
-                border-radius: 25px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: all 0.3s ease;
-            }
-            .modal-order-btn:hover {
-                background: var(--bunny-red);
-                transform: translateY(-2px);
-            }
-        `;
-        document.head.appendChild(modalStyle);
-        
-        document.body.appendChild(modal);
-        
-        // Animate in
-        setTimeout(() => {
-            modal.style.opacity = '1';
-            modal.querySelector('.modal-content').style.transform = 'scale(1)';
-        }, 100);
-        
-        // Close functionality
-        function closeModal() {
-            modal.style.opacity = '0';
-            modal.querySelector('.modal-content').style.transform = 'scale(0.8)';
-            setTimeout(() => {
-                modal.remove();
-                modalStyle.remove();
-            }, 300);
-        }
-        
-        modal.querySelector('.modal-close').addEventListener('click', closeModal);
-        modal.querySelector('.modal-overlay').addEventListener('click', closeModal);
-        
-        // Order button in modal
-        modal.querySelector('.modal-order-btn').addEventListener('click', () => {
-            const itemName = title.toLowerCase().replace(/\s+/g, '-');
-            handleOrder(itemName, modal.querySelector('.modal-order-btn'));
-            setTimeout(closeModal, 2000);
-        });
-    }
-    
-    // Initialize scroll animations
-    function initializeAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all menu cards
-        document.querySelectorAll('.menu-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(50px)';
-            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-            observer.observe(card);
-        });
-    }
-    
-    // Scroll effects
-    function initializeScrollEffects() {
-        let ticking = false;
-        
-        function updateScrollEffects() {
-            const scrolled = window.pageYOffset;
-            const parallax = scrolled * 0.5;
-            
-            // Parallax effect for section background
-            const menuSection = document.querySelector('.menu');
-            if (menuSection) {
-                menuSection.style.transform = `translateY(${parallax}px)`;
-            }
-            
-            ticking = false;
-        }
-        
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
-        }
-        
-        window.addEventListener('scroll', requestTick);
-    }
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const modal = document.querySelector('.quick-view-modal');
-            if (modal) {
-                modal.querySelector('.modal-close').click();
-            }
-            
-            const notification = document.querySelector('.notification');
-            if (notification) {
-                notification.querySelector('.notification-close').click();
-            }
-        }
-    });
-    
-    // Performance optimization
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-    
-    // Optimized resize handler
-    window.addEventListener('resize', debounce(() => {
-        // Re-initialize animations on resize
-        initializeAnimations();
-    }, 250));
-    
-    console.log('🍽️ Healthy Menu System Initialized Successfully!');
-});
 
     // Testimonial card tilt effect
     const testimonialCards = document.querySelectorAll('.testimonial-card');
@@ -817,7 +582,6 @@ function setupBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');
     
     if (backToTopBtn) {
-        // Show/hide button based on scroll position
         window.addEventListener('scroll', throttle(function() {
             const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
@@ -828,14 +592,12 @@ function setupBackToTop() {
             }
         }, 100));
 
-        // Smooth scroll to top when clicked
         backToTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
             
-            // Add click feedback
             this.style.transform = 'scale(0.9)';
             setTimeout(() => {
                 this.style.transform = 'scale(1)';
@@ -854,16 +616,13 @@ function setupToysToggle() {
             const isHidden = pageToys.classList.contains('hidden');
             
             if (isHidden) {
-                // Show toys
                 pageToys.classList.remove('hidden');
                 toysToggle.classList.remove('toys-hidden');
             } else {
-                // Hide toys
                 pageToys.classList.add('hidden');
                 toysToggle.classList.add('toys-hidden');
             }
             
-            // Add button feedback animation
             toysToggle.style.transform = 'scale(0.9)';
             setTimeout(() => {
                 toysToggle.style.transform = 'scale(1)';
@@ -874,7 +633,6 @@ function setupToysToggle() {
 
 // Performance optimizations
 function setupPerformanceOptimizations() {
-    // Preload critical fonts
     const fontLinks = [
         'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap',
         'https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap'
@@ -888,7 +646,6 @@ function setupPerformanceOptimizations() {
         document.head.appendChild(link);
     });
 
-    // Optimize scroll performance
     let ticking = false;
     function requestTick() {
         if (!ticking) {
@@ -898,7 +655,6 @@ function setupPerformanceOptimizations() {
     }
 
     function updateScrollElements() {
-        // Update scroll-dependent elements here
         ticking = false;
     }
 
@@ -943,39 +699,6 @@ function createRippleEffect(event, element) {
     element.appendChild(ripple);
     
     setTimeout(() => ripple.remove(), 600);
-}
-
-function createBurstEffect(element) {
-    const colors = ['var(--bunny-red)', 'var(--bunny-yellow)', 'var(--bunny-green)'];
-    
-    for (let i = 0; i < 6; i++) {
-        const particle = document.createElement('div');
-        const angle = (i * 60) * Math.PI / 180;
-        const distance = 40 + Math.random() * 20;
-        const x = Math.cos(angle) * distance;
-        const y = Math.sin(angle) * distance;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        
-        particle.style.cssText = `
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: ${color};
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 1000;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            animation: burst 0.8s ease-out forwards;
-        `;
-        
-        particle.style.setProperty('--x', x + 'px');
-        particle.style.setProperty('--y', y + 'px');
-        
-        element.appendChild(particle);
-        setTimeout(() => particle.remove(), 800);
-    }
 }
 
 function createParticleEffect(element) {
@@ -1047,17 +770,6 @@ additionalStyles.textContent = `
         }
     }
     
-    @keyframes burst {
-        0% { 
-            transform: translate(-50%, -50%) scale(1); 
-            opacity: 1; 
-        }
-        100% { 
-            transform: translate(-50%, -50%) translate(var(--x), var(--y)) scale(0); 
-            opacity: 0; 
-        }
-    }
-    
     @keyframes particleFloat {
         0% { 
             opacity: 1; 
@@ -1078,12 +790,11 @@ document.head.appendChild(additionalStyles);
 
 // Handle image loading for menu items and hero
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide placeholder when real image is loaded
     const images = document.querySelectorAll('.food-image, .hero-main-image');
     images.forEach(img => {
         if (img.src && !img.src.includes('your-') && !img.src.endsWith('.jpg')) {
             const placeholder = img.nextElementSibling;
-            if (placeholder && placeholder.classList.contains('image-placeholder', 'hero-image-placeholder')) {
+            if (placeholder && (placeholder.classList.contains('image-placeholder') || placeholder.classList.contains('hero-image-placeholder'))) {
                 img.addEventListener('load', function() {
                     placeholder.style.display = 'none';
                 });
@@ -1110,6 +821,7 @@ window.addEventListener('load', function() {
 window.BunnyBites = {
     filterMenuItems,
     createRippleEffect,
-    createBurstEffect,
     animateCounter
 };
+
+// ===== EXISTING WEBSITE FUNCTIONALITY END =====
