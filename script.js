@@ -50,7 +50,19 @@ function initializeMobileMenu() {
     // Add event listeners
     setupMobileMenuEvents(elements);
     
-    console.log('✅ Mobile menu initialized successfully');
+    // Setup touch-friendly contact button
+    const contactBtn = document.querySelector('.contact-btn');
+    if (contactBtn) {
+        contactBtn.addEventListener('touchstart', function(e) {
+            this.style.transform = 'translateY(-3px) scale(1.02)';
+        }, { passive: true });
+        
+        contactBtn.addEventListener('touchend', function(e) {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        }, { passive: true });
+    }
 }
 
 function resetMobileMenuState(elements) {
@@ -113,23 +125,71 @@ function setupMobileMenuEvents(elements) {
         }
     });
 
-    // Menu link clicks
+    // Menu link clicks with enhanced mobile support
     elements.menuLinks.forEach(link => {
+        const icon = link.querySelector('.menu-icon i');
+        
+        // Handle touch start for mobile
+        link.addEventListener('touchstart', function(e) {
+            console.log('👆 Menu link touched:', this.textContent.trim());
+            this.classList.add('touching');
+            
+            // Add icon animation
+            if (icon) {
+                icon.classList.add('clicked');
+            }
+        }, { passive: true });
+        
+        // Handle touch end
+        link.addEventListener('touchend', function(e) {
+            console.log('👆 Menu link touch ended');
+            this.classList.remove('touching');
+            
+            // Remove icon animation after delay
+            if (icon) {
+                setTimeout(() => {
+                    icon.classList.remove('clicked');
+                }, 600);
+            }
+        }, { passive: true });
+        
+        // Handle click with animation
         link.addEventListener('click', function(e) {
             console.log('🔗 Menu link clicked:', this.textContent.trim());
             
-            // Add click animation
+            // Add click animation for icon
+            if (icon && !icon.classList.contains('clicked')) {
+                icon.classList.add('clicked');
+                setTimeout(() => {
+                    icon.classList.remove('clicked');
+                }, 600);
+            }
+            
+            // Add link animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
             
-            // Close menu after link click
+            // Close menu after animation
             setTimeout(() => {
                 if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
                     closeMobileMenu(elements);
                 }
             }, 300);
+        });
+        
+        // Handle mouse events for desktop
+        link.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 768) {
+                this.classList.add('touching');
+            }
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 768) {
+                this.classList.remove('touching');
+            }
         });
     });
 
@@ -163,6 +223,9 @@ function openMobileMenu(elements) {
     // Store scroll position
     mobileMenuState.scrollPosition = window.pageYOffset;
     
+    // Reset menu panel scroll position
+    elements.panel.scrollTop = 0;
+    
     // Add active classes
     elements.toggle.classList.add('active');
     elements.panel.classList.add('active');
@@ -176,7 +239,7 @@ function openMobileMenu(elements) {
     // Update ARIA
     elements.toggle.setAttribute('aria-expanded', 'true');
     
-    // Animate menu items
+    // Animate menu items with stagger
     const menuItems = document.querySelectorAll('.menu-item');
     menuItems.forEach((item, index) => {
         setTimeout(() => {
@@ -184,6 +247,15 @@ function openMobileMenu(elements) {
             item.style.transform = 'translateX(0)';
         }, 100 + (index * 100));
     });
+    
+    // Add scroll hint for mobile users
+    setTimeout(() => {
+        const footer = elements.panel.querySelector('.menu-footer');
+        if (footer && elements.panel.scrollHeight > elements.panel.clientHeight) {
+            footer.style.boxShadow = '0 -10px 20px rgba(183, 28, 28, 0.1)';
+            console.log('📜 Menu is scrollable - footer shadow added');
+        }
+    }, 500);
     
     // Reset animation flag
     setTimeout(() => {
