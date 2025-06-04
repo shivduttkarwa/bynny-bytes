@@ -2,7 +2,6 @@
 // Clean, organized, and maintainable code
 
 
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing Bunny Bites website...');
     initializeWebsite();
