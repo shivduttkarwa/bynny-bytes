@@ -1,6 +1,8 @@
 // ===== BUNNY BITES WEBSITE JAVASCRIPT =====
 // Clean, organized, and maintainable code
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing Bunny Bites website...');
     initializeWebsite();
@@ -621,6 +623,20 @@ function initializeImageLoading() {
     console.log('✅ Image loading initialized');
 }
 
+// ===== ENSURE MOBILE MENU PANEL IS SCROLLABLE =====
+if (!document.getElementById('mobile-menu-panel-scrollable-style')) {
+    const scrollableStyle = document.createElement('style');
+    scrollableStyle.id = 'mobile-menu-panel-scrollable-style';
+    scrollableStyle.textContent = `
+        #mobile-menu-panel {
+            max-height: 100vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+    `;
+    document.head.appendChild(scrollableStyle);
+}
+
 // ===== UTILITY FUNCTIONS =====
 function throttle(func, limit) {
     let inThrottle;
@@ -748,3 +764,9 @@ window.BunnyBites = {
 };
 
 console.log('🎉 Bunny Bites JavaScript loaded successfully!');
+
+Promise.resolve().then(() => {
+    console.log('🐰 Bunny Bites JavaScript execution completed');
+}).catch(err => {
+    console.error('❌ Error in Bunny Bites JavaScript:', err);
+});

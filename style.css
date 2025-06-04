@@ -1189,8 +1189,6 @@ body.menu-open {
   gap: 0.5rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid var(--bunny-red);
-  position: relative;
-  overflow: hidden;
 }
 
 .btn-primary::before {
