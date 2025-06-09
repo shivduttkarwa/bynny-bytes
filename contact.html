@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bunny Bites - From Cravings to Comfort, Carefully Crafted</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+
+  <body>
+    <!-- ===== MOBILE MENU SYSTEM ===== -->
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <nav class="mobile-menu-panel" id="mobile-menu-panel">
+      <!-- Menu Decorations -->
+      <div class="menu-decorations">
+        <div class="menu-floating-toy menu-toy-1">
+          <i class="fas fa-rabbit"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-2">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-3">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-4">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-5">
+          <i class="fas fa-basketball-ball"></i>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        class="menu-close-btn"
+        id="menu-close-btn"
+        aria-label="Close menu"
+      ></button>
+
+      <!-- Menu Header -->
+      <div class="menu-header">
+        <div class="menu-logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="menu-logo-image"
+          />
+        </div>
+      </div>
+
+      <!-- Menu Items -->
+      <ul class="menu-items">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <div class="menu-icon">🏠</div>
+            <span>Home</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#about" class="menu-link">
+            <div class="menu-icon">🌱</div>
+            <span>About</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#how-it-works" class="menu-link">
+            <div class="menu-icon">⚙️</div>
+            <span>How It Works</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#menu" class="menu-link">
+            <div class="menu-icon">🍱</div>
+            <span>Menu</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#testimonials" class="menu-link">
+            <div class="menu-icon">⭐</div>
+            <span>Reviews</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html" class="menu-link">
+            <div class="menu-icon">💚</div>
+            <span>Contact</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Fun Footer - FIXED -->
+      <div class="menu-footer">
+        <div class="fun-message">
+          <span class="message-icon">🎉</span>
+          <p>Eat healthy, grow strong!</p>
+        </div>
+        <div class="menu-contact">
+          <a href="tel:+919876543210" class="contact-btn">
+            <i class="fas fa-phone"></i>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== UTILITY BUTTONS ===== -->
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Toys Toggle Button -->
+    <button class="toys-toggle" id="toys-toggle" title="Toggle floating toys">
+      <i class="fas fa-eye"></i>
+    </button>
+
+    <!-- ===== FLOATING TOYS ===== -->
+    <div class="page-toys">
+      <div class="floating-toy toy-1">
+        <i class="fas fa-rabbit"></i>
+      </div>
+      <div class="floating-toy toy-2">
+        <i class="fas fa-child"></i>
+      </div>
+      <div class="floating-toy toy-3">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="floating-toy toy-4">
+        <i class="fas fa-car"></i>
+      </div>
+      <div class="floating-toy toy-5">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="floating-toy toy-6">
+        <i class="fas fa-basketball-ball"></i>
+      </div>
+      <div class="floating-toy toy-7">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <div class="floating-toy toy-8">
+        <i class="fas fa-dice"></i>
+      </div>
+      <div class="floating-toy toy-9">
+        <i class="fas fa-plane"></i>
+      </div>
+      <div class="floating-toy toy-10">
+        <i class="fas fa-horse"></i>
+      </div>
+      <div class="floating-toy toy-11">
+        <i class="fas fa-paw"></i>
+      </div>
+      <div class="floating-toy toy-12">
+        <i class="fas fa-puzzle-piece"></i>
+      </div>
+      <div class="floating-toy toy-13">
+        <i class="fas fa-fish"></i>
+      </div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="logo-image"
+          />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="contact.html" class="cta-button">Order Now</a>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            aria-label="Toggle Menu"
+          ></button>
+        </div>
+      </div>
+    </nav>
+    <!-- hero section -->
+
+    <!-- ===== CONTACT CTA SECTION ===== -->
+    <section class="contact-cta" id="order-now">
+      <div class="section-container">
+        <div class="contact-cta-content">
+          <div class="contact-cta-text">
+            <div class="section-header">
+              <span class="section-badge">Ready to Order?</span>
+              <h2 class="section-title">
+                Let's Create the Perfect Meal for Your Little One!
+              </h2>
+              <p class="section-description">
+                Have questions about our meals? Need a custom menu for your
+                child? Our team is here to help you create the perfect dining
+                experience.
+              </p>
+            </div>
+
+            <div class="contact-cta-buttons">
+              <a href="#contact-form" class="btn-primary btn-large">
+                <i class="fas fa-paper-plane"></i>
+                Order Custom Meal
+              </a>
+              <a href="tel:+919876543210" class="btn-secondary btn-large">
+                <i class="fas fa-phone"></i>
+                Call Now
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-cta-visual">
+            <div class="cta-image-wrapper">
+              <img
+                src="img/contact-hero.webp"
+                alt="Happy family enjoying meals"
+                class="cta-main-image"
+              />
+              <!-- Fallback if no image -->
+              <div class="cta-image-placeholder">
+                <i class="fas fa-users"></i>
+                <p>Happy Family<br />Enjoying Meals</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== CONTACT PAGE ===== -->
+    <section class="contact-page">
+      <div class="contact-container">
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <div class="contact-header">
+            <div class="contact-badge">
+              <i class="fas fa-phone-alt"></i>
+              Get In Touch
+            </div>
+            <h2 class="contact-title">
+              Let's Talk About Your Little One's Meals!
+            </h2>
+            <p class="contact-subtitle">
+              We're here to help you provide the best nutrition for your child.
+              Reach out to us for any questions or special meal requests.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Call Us</h4>
+                <p>+91 98765 43210</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Email Us</h4>
+                <p>hello@bunnybites.com</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Delivery Hours</h4>
+                <p>Daily 8AM - 8PM</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="contact-text">
+                <h4>Service Area</h4>
+                <p>Jaipur & Nearby Areas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form" id="contact-form">
+          <div class="form-header">
+            <h3 class="form-title">Order Your Healthy Meals</h3>
+            <p class="form-subtitle">
+              Fill out the form below and we'll get back to you within 24 hours
+            </p>
+          </div>
+
+          <form id="contactForm" style="width: 100%; overflow: visible">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name" class="form-label">
+                  <i class="fas fa-user"></i>
+                  Full Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Enter your full name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">
+                  <i class="fas fa-phone"></i>
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="+91 9876543210"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">
+                <i class="fas fa-envelope"></i>
+                Email Address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="childAge" class="form-label">
+                  <i class="fas fa-child"></i>
+                  Child's Age
+                </label>
+                <select
+                  id="childAge"
+                  name="childAge"
+                  class="form-select"
+                  required
+                >
+                  <option value="">Select age range</option>
+                  <option value="1-2">1-2 years</option>
+                  <option value="3-5">3-5 years</option>
+                  <option value="6-8">6-8 years</option>
+                  <option value="9-12">9-12 years</option>
+                  <option value="13+">13+ years</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="deliveryTime" class="form-label">
+                  <i class="fas fa-clock"></i>
+                  Preferred Delivery Time
+                </label>
+                <select
+                  id="deliveryTime"
+                  name="deliveryTime"
+                  class="form-select"
+                  required
+                >
+                  <option value="">Select time slot</option>
+                  <option value="morning">Morning (8AM - 12PM)</option>
+                  <option value="afternoon">Afternoon (12PM - 4PM)</option>
+                  <option value="evening">Evening (4PM - 8PM)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="preferredMeal" class="form-label">
+                <i class="fas fa-utensils"></i>
+                Select Your Preferred Meal
+              </label>
+              <select
+                id="preferredMeal"
+                name="preferredMeal"
+                class="form-select"
+                required
+              >
+                <option value="">Choose your meal preference</option>
+                <option value="vegetable-pulao">
+                  Vegetable Pulao Meal Box - ₹149
+                </option>
+                <option value="paneer-paratha">
+                  Paneer Paratha Meal Box - ₹179
+                </option>
+                <option value="khichdi">Mixed Vegetable Khichdi - ₹129</option>
+                <option value="quinoa-bowl">Quinoa Veggie Bowl - ₹199</option>
+                <option value="thali-box">Traditional Thali Box - ₹169</option>
+                <option value="rajma-bowl">Brown Rice Rajma Bowl - ₹159</option>
+                <option value="multiple">
+                  Multiple meals (specify in message below)
+                </option>
+                <option value="custom">
+                  Custom meal request (specify in message below)
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message" class="form-label">
+                <i class="fas fa-comment"></i>
+                Special Instructions or Dietary Requirements
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                class="form-textarea"
+                placeholder="Let us know about any allergies, preferences, or special requests for your child's meals..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              Send Order Request
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMPROVED FOOTER ===== -->
+    <footer class="footer">
+      <div class="section-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <img
+                src="img/bunny bites logo.svg"
+                alt="Bunny Bites Logo"
+                class="logo-image"
+              />
+            </div>
+            <p class="footer-tagline">
+              From Cravings to Comfort, Carefully Crafted
+            </p>
+            <p class="footer-description">
+              Providing nutritious, delicious meals that kids love and parents
+              trust. Every bite is a step towards healthier, happier children.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li>
+                  <a href="#home"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                  <a href="#about"><i class="fas fa-heart"></i> About</a>
+                </li>
+                <li>
+                  <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="fas fa-paper-plane"></i> Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Get In Touch</h4>
+              <ul>
+                <li>
+                  <a href="tel:+919876543210"
+                    ><i class="fas fa-phone"></i> +91 98765 43210</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:hello@bunnybites.com"
+                    ><i class="fas fa-envelope"></i> hello@bunnybites.com</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-clock"></i> Daily 8AM - 8PM</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-map-marker-alt"></i> Jaipur & Areas</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="footer-bottom-left">
+              <p>&copy; 2025 Bunny Bites. All rights reserved.</p>
+              <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+              </div>
+            </div>
+
+            <div class="footer-bottom-right">
+              <div class="footer-social">
+                <p>Follow Our Food Journey</p>
+                <div class="social-links">
+                  <a
+                    href="#"
+                    class="social-link facebook"
+                    aria-label="Facebook"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-link instagram"
+                    aria-label="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="social-link twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-link whatsapp"
+                    aria-label="WhatsApp"
+                  >
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
+              <p class="footer-credit">
+                Made with <i class="fas fa-heart"></i> by
+                <a href="#">Shivdutt Karwa</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>

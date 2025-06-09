@@ -1,158 +1,107 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bunny Menu Toggle</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="test.css" />
-  </head>
-  <body>
-    <!-- ===== MOBILE MENU TOGGLE START ===== -->
-    <!-- This section contains the hamburger/bunny toggle button -->
-    <div class="mobile-menu-container">
-      <!-- Hamburger/Bunny Toggle Button -->
-      <button
-        class="hamburger-btn"
-        id="mobileMenuToggle"
-        aria-label="Toggle Menu"
-      >
-        <!-- Hamburger Lines that transform to Bunny -->
-        <div class="hamburger-bunny">
-          <!-- Top line becomes left ear -->
-          <span class="line line-1"></span>
-          <!-- Middle line becomes right ear -->
-          <span class="line line-2"></span>
-          <!-- Bottom line becomes face base -->
-          <span class="line line-3"></span>
-
-          <!-- Bunny facial features (hidden initially) -->
-          <div class="bunny-face">
-            <div class="bunny-eyes">
-              <div class="eye eye-left"></div>
-              <div class="eye eye-right"></div>
-            </div>
-            <div class="bunny-nose"></div>
-            <div class="bunny-mouth"></div>
-            <div class="bunny-cheeks">
-              <div class="cheek cheek-left"></div>
-              <div class="cheek cheek-right"></div>
-            </div>
-          </div>
+<!-- ===== IMPROVED FOOTER ===== -->
+<footer class="footer">
+  <div class="section-container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="logo-image"
+          />
         </div>
-      </button>
-
-      <!-- Mobile Menu Overlay -->
-      <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-
-      <!-- Mobile Menu Panel -->
-      <nav class="mobile-menu-panel" id="mobileMenuPanel">
-        <!-- Decorative Elements for Kids -->
-        <div class="menu-decorations">
-          <div class="floating-star star-1">⭐</div>
-          <div class="floating-star star-2">🌟</div>
-          <div class="floating-star star-3">✨</div>
-          <div class="floating-carrot carrot-1">🥕</div>
-          <div class="floating-carrot carrot-2">🥕</div>
-          <div class="floating-heart heart-1">💚</div>
-        </div>
-
-        <!-- Menu Header -->
-        <div class="menu-header">
-          <div class="menu-logo">
-            <div class="logo-bunny">🐰</div>
-            <h3>Bunny Bites</h3>
-          </div>
-          <p class="menu-tagline">Healthy & Yummy!</p>
-        </div>
-
-        <!-- Menu Items -->
-        <ul class="menu-items">
-          <li class="menu-item" data-delay="0.1">
-            <a href="#home" class="menu-link">
-              <div class="menu-icon">🏠</div>
-              <span>Home</span>
-              <div class="menu-arrow">→</div>
-            </a>
-          </li>
-          <li class="menu-item" data-delay="0.2">
-            <a href="#menu" class="menu-link">
-              <div class="menu-icon">🍱</div>
-              <span>Menu</span>
-              <div class="menu-arrow">→</div>
-            </a>
-          </li>
-          <li class="menu-item" data-delay="0.3">
-            <a href="#about" class="menu-link">
-              <div class="menu-icon">🌱</div>
-              <span>About</span>
-              <div class="menu-arrow">→</div>
-            </a>
-          </li>
-          <li class="menu-item" data-delay="0.4">
-            <a href="#nutrition" class="menu-link">
-              <div class="menu-icon">💪</div>
-              <span>Nutrition</span>
-              <div class="menu-arrow">→</div>
-            </a>
-          </li>
-          <li class="menu-item" data-delay="0.5">
-            <a href="#contact" class="menu-link">
-              <div class="menu-icon">📞</div>
-              <span>Contact</span>
-              <div class="menu-arrow">→</div>
-            </a>
-          </li>
-          <li class="menu-item" data-delay="0.6">
-            <a href="#order" class="menu-link special-item">
-              <div class="menu-icon">🛒</div>
-              <span>Order Now</span>
-              <div class="menu-arrow">→</div>
-            </a>
-          </li>
-        </ul>
-
-        <!-- Fun Footer -->
-        <div class="menu-footer">
-          <div class="fun-message">
-            <span class="message-icon">🎉</span>
-            <p>Eat healthy, grow strong!</p>
-          </div>
-          <div class="menu-contact">
-            <a href="tel:+1234567890" class="contact-btn">
-              <i class="fas fa-phone"></i>
-              Call Us
-            </a>
-          </div>
-        </div>
-      </nav>
-    </div>
-    <!-- ===== MOBILE MENU TOGGLE END ===== -->
-
-    <!-- Rest of your page content -->
-    <main class="page-content">
-      <h1>Your Page Content Here</h1>
-      <p>
-        This is where your main content goes. The mobile menu will overlay on
-        top.
-      </p>
-
-      <!-- Add some content to test scrolling -->
-      <div
-        style="
-          height: 200vh;
-          background: linear-gradient(45deg, #fff8e1, #fffbf0);
-          padding: 2rem;
-        "
-      >
-        <h2>Scroll to test the menu behavior</h2>
-        <p>The mobile menu should work perfectly even when scrolling.</p>
+        <p class="footer-tagline">
+          From Cravings to Comfort, Carefully Crafted
+        </p>
+        <p class="footer-description">
+          Providing nutritious, delicious meals that kids love and parents
+          trust. Every bite is a step towards healthier, happier children.
+        </p>
       </div>
-    </main>
 
-    <script src="test.js"></script>
-  </body>
-</html>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li>
+              <a href="#home"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#about"><i class="fas fa-heart"></i> About</a>
+            </li>
+            <li>
+              <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+            </li>
+            <li>
+              <a href="contact.html"
+                ><i class="fas fa-paper-plane"></i> Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h4>Get In Touch</h4>
+          <ul>
+            <li>
+              <a href="tel:+919876543210"
+                ><i class="fas fa-phone"></i> +91 98765 43210</a
+              >
+            </li>
+            <li>
+              <a href="mailto:hello@bunnybites.com"
+                ><i class="fas fa-envelope"></i> hello@bunnybites.com</a
+              >
+            </li>
+            <li>
+              <a href="#"><i class="fas fa-clock"></i> Daily 8AM - 8PM</a>
+            </li>
+            <li>
+              <a href="#"
+                ><i class="fas fa-map-marker-alt"></i> Jaipur & Areas</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="footer-bottom-left">
+          <p>&copy; 2025 Bunny Bites. All rights reserved.</p>
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+          </div>
+        </div>
+
+        <div class="footer-bottom-right">
+          <div class="footer-social">
+            <p>Follow Our Food Journey</p>
+            <div class="social-links">
+              <a href="#" class="social-link facebook" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#" class="social-link instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#" class="social-link twitter" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#" class="social-link whatsapp" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+          <p class="footer-credit">
+            Made with <i class="fas fa-heart"></i> by
+            <a href="#">Shivdutt Karwa</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style></style>

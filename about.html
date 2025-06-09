@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bunny Bites - From Cravings to Comfort, Carefully Crafted</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ===== MOBILE MENU SYSTEM ===== -->
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <nav class="mobile-menu-panel" id="mobile-menu-panel">
+      <!-- Menu Decorations -->
+      <div class="menu-decorations">
+        <div class="menu-floating-toy menu-toy-1">
+          <i class="fas fa-rabbit"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-2">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-3">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-4">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-5">
+          <i class="fas fa-basketball-ball"></i>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        class="menu-close-btn"
+        id="menu-close-btn"
+        aria-label="Close menu"
+      ></button>
+
+      <!-- Menu Header -->
+      <div class="menu-header">
+        <div class="menu-logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="menu-logo-image"
+          />
+        </div>
+      </div>
+
+      <!-- Menu Items -->
+      <ul class="menu-items">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <div class="menu-icon">🏠</div>
+            <span>Home</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#about" class="menu-link">
+            <div class="menu-icon">🌱</div>
+            <span>About</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#how-it-works" class="menu-link">
+            <div class="menu-icon">⚙️</div>
+            <span>How It Works</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#menu" class="menu-link">
+            <div class="menu-icon">🍱</div>
+            <span>Menu</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#testimonials" class="menu-link">
+            <div class="menu-icon">⭐</div>
+            <span>Reviews</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html" class="menu-link">
+            <div class="menu-icon">💚</div>
+            <span>Contact</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Fun Footer - FIXED -->
+      <div class="menu-footer">
+        <div class="fun-message">
+          <span class="message-icon">🎉</span>
+          <p>Eat healthy, grow strong!</p>
+        </div>
+        <div class="menu-contact">
+          <a href="tel:+919876543210" class="contact-btn">
+            <i class="fas fa-phone"></i>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== UTILITY BUTTONS ===== -->
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Toys Toggle Button -->
+    <button class="toys-toggle" id="toys-toggle" title="Toggle floating toys">
+      <i class="fas fa-eye"></i>
+    </button>
+
+    <!-- ===== FLOATING TOYS ===== -->
+    <div class="page-toys">
+      <div class="floating-toy toy-1">
+        <i class="fas fa-rabbit"></i>
+      </div>
+      <div class="floating-toy toy-2">
+        <i class="fas fa-child"></i>
+      </div>
+      <div class="floating-toy toy-3">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="floating-toy toy-4">
+        <i class="fas fa-car"></i>
+      </div>
+      <div class="floating-toy toy-5">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="floating-toy toy-6">
+        <i class="fas fa-basketball-ball"></i>
+      </div>
+      <div class="floating-toy toy-7">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <div class="floating-toy toy-8">
+        <i class="fas fa-dice"></i>
+      </div>
+      <div class="floating-toy toy-9">
+        <i class="fas fa-plane"></i>
+      </div>
+      <div class="floating-toy toy-10">
+        <i class="fas fa-horse"></i>
+      </div>
+      <div class="floating-toy toy-11">
+        <i class="fas fa-paw"></i>
+      </div>
+      <div class="floating-toy toy-12">
+        <i class="fas fa-puzzle-piece"></i>
+      </div>
+      <div class="floating-toy toy-13">
+        <i class="fas fa-fish"></i>
+      </div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="logo-image"
+          />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="contact.html" class="cta-button">Order Now</a>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            aria-label="Toggle Menu"
+          ></button>
+        </div>
+      </div>
+    </nav>
+    <!-- hero section -->
+    <!-- ===== ABOUT HERO SECTION ===== -->
+    <section class="hero about-hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <i class="fas fa-heart"></i>
+            About Bunny Bites
+          </div>
+          <h1 class="hero-title">
+            Creating <span class="highlight">Healthy Happiness</span> One Bite
+            at a Time
+          </h1>
+          <p class="hero-subtitle">
+            From Cravings to Comfort, Carefully Crafted
+          </p>
+          <p class="hero-description">
+            At Bunny Bites, we believe every child deserves nutritious,
+            delicious meals that fuel their growth and spark their joy. Founded
+            with love and a passion for healthy eating, we're on a mission to
+            make mealtime magical for families across Jaipur.
+          </p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-container">
+            <div class="hero-image-wrapper">
+              <img
+                src="img/about-hero.jpg"
+                alt="Bunny Bites team preparing healthy meals"
+                class="hero-main-image"
+              />
+              <div class="hero-image-placeholder">
+                <i class="fas fa-users"></i>
+                <p>Our Amazing<br />Team</p>
+              </div>
+            </div>
+
+            <div class="hero-decoration decoration-1">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="hero-decoration decoration-2">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <div class="hero-decoration decoration-3">
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUR STORY SECTION ===== -->
+    <section class="story-section" id="our-story">
+      <div class="section-container">
+        <div class="story-content">
+          <div class="story-text">
+            <div class="section-badge">Our Story</div>
+            <h3>From a Parent's Heart to Your Family's Table</h3>
+            <p>
+              Bunny Bites was born from a simple yet powerful realization: as a
+              parent, I struggled to find meals that were both nutritious and
+              appealing to my child. Like many families, we faced the daily
+              challenge of creating healthy meals that kids would actually enjoy
+              eating.
+            </p>
+            <p>
+              After countless hours of research, recipe development, and testing
+              with local families, Bunny Bites emerged as the solution. We're
+              not just a meal delivery service – we're a community of parents
+              who understand the importance of nutrition without compromising on
+              taste and joy.
+            </p>
+            <p>
+              Every recipe is carefully crafted by our team of nutritionists and
+              chefs, ensuring that each bite delivers both the nutrients growing
+              bodies need and the flavors that make children smile. We source
+              only the freshest, highest-quality ingredients, and prepare every
+              meal with the same love and attention we'd give our own children.
+            </p>
+
+            <div class="story-highlights">
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i class="fas fa-calendar-alt"></i>
+                </div>
+                <div class="highlight-number">2+</div>
+                <div class="highlight-label">Years of Service</div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i class="fas fa-utensils"></i>
+                </div>
+                <div class="highlight-number">24</div>
+                <div class="highlight-label">Healthy Recipes</div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i class="fas fa-truck"></i>
+                </div>
+                <div class="highlight-number">Daily</div>
+                <div class="highlight-label">Fresh Delivery</div>
+              </div>
+              <div class="highlight-item">
+                <div class="highlight-icon">
+                  <i class="fas fa-heart"></i>
+                </div>
+                <div class="highlight-number">100%</div>
+                <div class="highlight-label">Made with Love</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="story-visual">
+            <div class="story-image-wrapper">
+              <img
+                src="img/our-story.jpg"
+                alt="Fresh ingredients and happy cooking"
+                class="story-main-image"
+              />
+              <div class="story-image-placeholder">
+                <i class="fas fa-seedling"></i>
+                <p>Fresh Ingredients<br />Happy Cooking</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OUR VALUES SECTION ===== -->
+    <section class="features">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">Our Values</span>
+          <h2 class="section-title">What Drives Everything We Do</h2>
+          <p class="section-description">
+            These core values guide every decision we make, from ingredient
+            sourcing to meal delivery.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3 class="feature-title">Love in Every Bite</h3>
+            <p class="feature-description">
+              We prepare each meal with the same care and attention we'd give
+              our own children. Every ingredient is chosen with love, every dish
+              crafted with passion.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-leaf"></i>
+            </div>
+            <h3 class="feature-title">Pure & Natural</h3>
+            <p class="feature-description">
+              We source only the freshest, highest-quality ingredients. No
+              artificial preservatives, no harmful additives – just pure,
+              wholesome nutrition.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3 class="feature-title">Family First</h3>
+            <p class="feature-description">
+              Every family is unique, and we celebrate that. We work with
+              parents to create meals that fit their child's preferences and
+              dietary needs.
+            </p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <h3 class="feature-title">Excellence Always</h3>
+            <p class="feature-description">
+              We never compromise on quality. From taste-testing every recipe to
+              ensuring timely delivery, we strive for excellence in everything
+              we do.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section class="testimonials">
+      <div class="section-container">
+        <div class="section-header">
+          <span class="section-badge">Meet The Team</span>
+          <h2 class="section-title">
+            The Passionate People Behind Bunny Bites
+          </h2>
+          <p class="section-description">
+            Our dedicated team of nutrition experts, chefs, and child-care
+            specialists work together to create magical meal experiences.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="team-member">
+            <div class="member-photo">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h4 class="member-name">Shivdutt Karwa</h4>
+            <p class="member-role">Founder & CEO</p>
+            <p class="member-quote">
+              As a parent myself, I understand the daily challenge of providing
+              healthy, appealing meals. That's why every Bunny Bites meal is
+              created with both nutrition and joy in mind.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">
+              <i class="fas fa-user-md"></i>
+            </div>
+            <h4 class="member-name">Dr. Priya Sharma</h4>
+            <p class="member-role">Child Nutritionist</p>
+            <p class="member-quote">
+              Every recipe is carefully crafted to meet children's nutritional
+              needs while being absolutely delicious. We believe healthy food
+              should never compromise on taste.
+            </p>
+          </div>
+
+          <div class="team-member">
+            <div class="member-photo">
+              <i class="fas fa-utensils"></i>
+            </div>
+            <h4 class="member-name">Chef Rajesh Kumar</h4>
+            <p class="member-role">Head Chef</p>
+            <p class="member-quote">
+              With 15 years in culinary arts, I bring creativity and tradition
+              together. Each meal is a perfect balance of nutrition, taste, and
+              visual appeal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMPROVED FOOTER ===== -->
+    <footer class="footer">
+      <div class="section-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <img
+                src="img/bunny bites logo.svg"
+                alt="Bunny Bites Logo"
+                class="logo-image"
+              />
+            </div>
+            <p class="footer-tagline">
+              From Cravings to Comfort, Carefully Crafted
+            </p>
+            <p class="footer-description">
+              Providing nutritious, delicious meals that kids love and parents
+              trust. Every bite is a step towards healthier, happier children.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li>
+                  <a href="#home"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                  <a href="#about"><i class="fas fa-heart"></i> About</a>
+                </li>
+                <li>
+                  <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="fas fa-paper-plane"></i> Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Get In Touch</h4>
+              <ul>
+                <li>
+                  <a href="tel:+919876543210"
+                    ><i class="fas fa-phone"></i> +91 98765 43210</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:hello@bunnybites.com"
+                    ><i class="fas fa-envelope"></i> hello@bunnybites.com</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-clock"></i> Daily 8AM - 8PM</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-map-marker-alt"></i> Jaipur & Areas</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="footer-bottom-left">
+              <p>&copy; 2025 Bunny Bites. All rights reserved.</p>
+              <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+              </div>
+            </div>
+
+            <div class="footer-bottom-right">
+              <div class="footer-social">
+                <p>Follow Our Food Journey</p>
+                <div class="social-links">
+                  <a
+                    href="#"
+                    class="social-link facebook"
+                    aria-label="Facebook"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-link instagram"
+                    aria-label="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="social-link twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-link whatsapp"
+                    aria-label="WhatsApp"
+                  >
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
+              <p class="footer-credit">
+                Made with <i class="fas fa-heart"></i> by
+                <a href="#">Shivdutt Karwa</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="script.js"></script>
+  </body>
+</html>
