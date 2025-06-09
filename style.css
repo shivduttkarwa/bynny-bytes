@@ -1,6 +1,3 @@
-/* ===== BUNNY BITES WEBSITE STYLES ===== */
-/* Clean, organized, and maintainable CSS */
-
 /* ===== CSS VARIABLES ===== */
 :root {
   --bunny-red: #b71c1c;
@@ -162,7 +159,7 @@ body::before {
   right: 0;
   width: 100%;
   max-width: 400px;
-  height: 90vh;
+  height: 80vh;
   background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream) 100%);
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -291,7 +288,7 @@ body::before {
   background: rgba(255, 255, 255, 0.5);
   border: 2px solid transparent;
   min-height: 48px;
-  user-select: none;
+  /* user-select: none; */
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -756,6 +753,7 @@ body.menu-open {
   list-style: none;
   gap: 2rem;
   align-items: center;
+  cursor: pointer;
 }
 
 .nav-links a {
@@ -773,7 +771,7 @@ body.menu-open {
 }
 
 .nav-links a::after {
-  content: "";
+  /* content: ""; */
   position: absolute;
   bottom: 0;
   left: 0;
