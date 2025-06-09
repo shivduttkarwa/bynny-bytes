@@ -159,7 +159,7 @@ body::before {
   right: 0;
   width: 100%;
   max-width: 400px;
-  height: 80vh;
+  height: 85vh;
   background: linear-gradient(135deg, var(--light-cream) 0%, var(--cream) 100%);
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
