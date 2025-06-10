@@ -364,7 +364,8 @@ body::before {
 .menu-footer {
   padding: 1rem 0.5rem 0.5rem;
   border-top: 2px solid rgba(183, 28, 28, 0.1);
-  margin-top: auto;
+  margin-top: 2px;
+  margin-bottom: 0px;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   flex-shrink: 0;
@@ -480,6 +481,7 @@ body::before {
 .menu-contact {
   display: block;
   opacity: 1;
+  margin-bottom: 125px;
 }
 
 .contact-btn {
@@ -2335,7 +2337,7 @@ body.menu-open {
 
   .menu-link {
     padding: 0.6rem 0.8rem;
-    font-size: 0.95rem;
+    font-size: 3.95rem;
     min-height: 44px;
   }
 
