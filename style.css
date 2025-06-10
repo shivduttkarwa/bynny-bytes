@@ -2334,8 +2334,8 @@ body.menu-open {
   }
 
   .mobile-menu-link {
-    padding: 1.5rem 8rem;
-    font-size: 1.25rem;
+    padding: 1.2rem 9rem;
+    font-size: 1.05rem;
     min-height: 44px;
   }
 
@@ -3932,6 +3932,7 @@ body.menu-open {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-bottom: 2rem;
 }
 .designer {
   color: var(--bunny-yellow);
@@ -3941,7 +3942,7 @@ body.menu-open {
 .footer-bottom-left p {
   color: rgba(255, 255, 255, 0.7);
   font-size: 0.9rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.4rem;
 }
 
 .footer-legal {
@@ -3954,7 +3955,7 @@ body.menu-open {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 0.85rem;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .footer-legal a:hover {
@@ -4076,7 +4077,7 @@ body.menu-open {
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .footer-tagline {
-    margin-left: 26px;
+    margin-left: 0px;
   }
   .footer-brand .logo-image {
     margin-left: -10px;
