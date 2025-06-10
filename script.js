@@ -1,5 +1,5 @@
-// ===== BUNNY BITES WEBSITE JAVASCRIPT (FIXED VERSION) =====
-// Clean, organized, and maintainable code
+// ===== BUNNY BITES WEBSITE JAVASCRIPT  =====
+
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing Bunny Bites website...');
@@ -21,7 +21,7 @@ function initializeWebsite() {
 }
 
 // ===== MOBILE MENU SYSTEM =====
-let mobileMenuState = {
+let menuState = {
     isOpen: false,
     isAnimating: false,
     scrollPosition: 0
@@ -36,214 +36,159 @@ function initializeMobileMenu() {
         panel: document.getElementById('mobile-menu-panel'),
         overlay: document.getElementById('mobile-menu-overlay'),
         closeBtn: document.getElementById('menu-close-btn'),
-        menuLinks: document.querySelectorAll('.menu-link')
+        menuLinks: document.querySelectorAll('.menu-link'),
+        orderBtn: document.querySelector('.order-btn')
     };
 
-    // Verify elements exist
+    // Verify essential elements exist
     if (!elements.toggle || !elements.panel || !elements.overlay) {
         console.error('❌ Mobile menu elements not found');
         return;
     }
 
-    // Set initial state
-    resetMobileMenuState(elements);
+    // Initialize menu state
+    resetMenuState(elements);
     
-    // Add event listeners
-    setupMobileMenuEvents(elements);
+    // Setup event listeners
+    setupMenuEvents(elements);
     
-    // Setup touch-friendly contact button
-    const contactBtn = document.querySelector('.contact-btn');
-    if (contactBtn) {
-        contactBtn.addEventListener('touchstart', function(e) {
-            this.style.transform = 'translateY(-3px) scale(1.02)';
-        }, { passive: true });
-        
-        contactBtn.addEventListener('touchend', function(e) {
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        }, { passive: true });
-    }
+    console.log('✅ Mobile menu initialized successfully');
 }
 
-function resetMobileMenuState(elements) {
-    // Reset state variables
-    mobileMenuState.isOpen = false;
-    mobileMenuState.isAnimating = false;
+function resetMenuState(elements) {
+    menuState.isOpen = false;
+    menuState.isAnimating = false;
     
-    // Remove any active classes
+    // Remove active classes
     elements.toggle.classList.remove('active');
     elements.panel.classList.remove('active');
     elements.overlay.classList.remove('active');
     document.body.classList.remove('menu-open');
     
-    // Set ARIA attributes
+    // Set accessibility attributes
     elements.toggle.setAttribute('aria-expanded', 'false');
     elements.toggle.setAttribute('aria-label', 'Toggle mobile menu');
-    
-    // Reset body styles
-    document.body.style.top = '';
-    document.body.style.overflow = '';
 }
 
-function setupMobileMenuEvents(elements) {
-    // Main toggle button click
-    elements.toggle.addEventListener('click', function(e) {
+function setupMenuEvents(elements) {
+    // Toggle button click
+    elements.toggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        console.log('🐰 Toggle clicked, current state:', mobileMenuState.isOpen);
         
-        if (mobileMenuState.isAnimating) {
-            console.log('⏳ Animation in progress, ignoring click');
-            return;
-        }
+        if (menuState.isAnimating) return;
         
-        if (mobileMenuState.isOpen) {
-            closeMobileMenu(elements);
-        } else {
-            openMobileMenu(elements);
-        }
+        menuState.isOpen ? closeMenu(elements) : openMenu(elements);
     });
 
     // Close button click
     if (elements.closeBtn) {
-        elements.closeBtn.addEventListener('click', function(e) {
+        elements.closeBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            e.stopPropagation();
-            console.log('❌ Close button clicked');
-            if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
-                closeMobileMenu(elements);
+            if (menuState.isOpen && !menuState.isAnimating) {
+                closeMenu(elements);
             }
         });
     }
 
     // Overlay click to close
-    elements.overlay.addEventListener('click', function(e) {
+    elements.overlay.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log('📱 Overlay clicked');
-        if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
-            closeMobileMenu(elements);
+        if (menuState.isOpen && !menuState.isAnimating) {
+            closeMenu(elements);
         }
     });
 
-    // Menu link clicks with enhanced mobile support
+    // Menu link interactions
     elements.menuLinks.forEach(link => {
-        const icon = link.querySelector('.menu-icon i');
-        
-        // Handle touch start for mobile
-        link.addEventListener('touchstart', function(e) {
-            console.log('👆 Menu link touched:', this.textContent.trim());
+        // Touch events for mobile
+        link.addEventListener('touchstart', function() {
             this.classList.add('touching');
-            
-            // Add icon animation
-            if (icon) {
-                icon.classList.add('clicked');
-            }
         }, { passive: true });
         
-        // Handle touch end
-        link.addEventListener('touchend', function(e) {
-            console.log('👆 Menu link touch ended');
+        link.addEventListener('touchend', function() {
             this.classList.remove('touching');
-            
-            // Remove icon animation after delay
-            if (icon) {
-                setTimeout(() => {
-                    icon.classList.remove('clicked');
-                }, 600);
-            }
         }, { passive: true });
         
-        // Handle click with animation
+        // Click events
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            console.log('🔗 Menu link clicked:', this.textContent.trim(), 'href:', href);
             
-            // Add click animation for icon
-            if (icon && !icon.classList.contains('clicked')) {
-                icon.classList.add('clicked');
-                setTimeout(() => {
-                    icon.classList.remove('clicked');
-                }, 600);
-            }
-            
-            // Add link animation
+            // Add click animation
             this.style.transform = 'scale(0.95)';
             setTimeout(() => {
                 this.style.transform = '';
             }, 150);
             
-            // Only prevent default and close menu for hash links
+            // Handle navigation
             if (href.startsWith('#')) {
                 e.preventDefault();
-                // Close menu after animation for same-page navigation
+                // Close menu and scroll to target
                 setTimeout(() => {
-                    if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
-                        closeMobileMenu(elements);
-                    }
-                    // Scroll to target after menu closes
-                    const target = document.querySelector(href);
-                    if (target) {
+                    if (menuState.isOpen && !menuState.isAnimating) {
+                        closeMenu(elements);
+                        // Scroll after menu closes
                         setTimeout(() => {
-                            target.scrollIntoView({ behavior: 'smooth' });
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
                         }, 600);
                     }
-                }, 300);
+                }, 200);
             } else {
-                // For external links, close menu and allow normal navigation
+                // Close menu for external links
                 setTimeout(() => {
-                    if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
-                        closeMobileMenu(elements);
+                    if (menuState.isOpen && !menuState.isAnimating) {
+                        closeMenu(elements);
                     }
                 }, 200);
             }
         });
-        
-        // Handle mouse events for desktop
-        link.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                this.classList.add('touching');
-            }
-        });
-        
-        link.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                this.classList.remove('touching');
-            }
-        });
     });
 
+    // Order button interaction
+    if (elements.orderBtn) {
+        elements.orderBtn.addEventListener('touchstart', function() {
+            this.style.transform = 'translateY(-3px) scale(1.02)';
+        }, { passive: true });
+        
+        elements.orderBtn.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        }, { passive: true });
+    }
+
     // Keyboard support
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
-            console.log('⌨️ Escape pressed, closing menu');
-            closeMobileMenu(elements);
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menuState.isOpen && !menuState.isAnimating) {
+            closeMenu(elements);
         }
     });
 
     // Window resize handler
     let resizeTimeout;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            if (window.innerWidth > 768 && mobileMenuState.isOpen) {
-                console.log('📐 Window resized to desktop, closing menu');
-                closeMobileMenu(elements);
+            if (window.innerWidth > 768 && menuState.isOpen) {
+                closeMenu(elements);
             }
         }, 250);
     });
 }
 
-function openMobileMenu(elements) {
-    console.log('🟢 Opening mobile menu...');
+function openMenu(elements) {
+    console.log('🟢 Opening menu...');
     
-    mobileMenuState.isAnimating = true;
-    mobileMenuState.isOpen = true;
+    menuState.isAnimating = true;
+    menuState.isOpen = true;
     
-    // Store scroll position
-    mobileMenuState.scrollPosition = window.pageYOffset;
+    // Store current scroll position
+    menuState.scrollPosition = window.pageYOffset;
     
-    // Reset menu panel scroll position
+    // Reset panel scroll
     elements.panel.scrollTop = 0;
     
     // Add active classes
@@ -253,72 +198,45 @@ function openMobileMenu(elements) {
     
     // Lock body scroll
     document.body.classList.add('menu-open');
-    document.body.style.top = `-${mobileMenuState.scrollPosition}px`;
-    document.body.style.overflow = 'hidden';
+    document.body.style.top = `-${menuState.scrollPosition}px`;
     
-    // Update ARIA
+    // Update accessibility
     elements.toggle.setAttribute('aria-expanded', 'true');
-    
-    // Animate menu items with stagger
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-        }, 100 + (index * 100));
-    });
-    
-    // Add scroll hint for mobile users
-    setTimeout(() => {
-        const footer = elements.panel.querySelector('.menu-footer');
-        if (footer && elements.panel.scrollHeight > elements.panel.clientHeight) {
-            footer.style.boxShadow = '0 -10px 20px rgba(183, 28, 28, 0.1)';
-            console.log('📜 Menu is scrollable - footer shadow added');
-        }
-    }, 500);
     
     // Reset animation flag
     setTimeout(() => {
-        mobileMenuState.isAnimating = false;
-        console.log('✅ Menu opened successfully');
+        menuState.isAnimating = false;
     }, 600);
 }
 
-function closeMobileMenu(elements) {
-    console.log('🔴 Closing mobile menu...');
+function closeMenu(elements) {
+    console.log('🔴 Closing menu...');
     
-    mobileMenuState.isAnimating = true;
-    mobileMenuState.isOpen = false;
+    menuState.isAnimating = true;
+    menuState.isOpen = false;
     
     // Remove active classes
     elements.toggle.classList.remove('active');
     elements.panel.classList.remove('active');
     elements.overlay.classList.remove('active');
     
-    // Unlock body scroll and restore position
+    // Restore body scroll
     document.body.classList.remove('menu-open');
     document.body.style.top = '';
-    document.body.style.overflow = '';
-    window.scrollTo(0, mobileMenuState.scrollPosition);
+    window.scrollTo(0, menuState.scrollPosition);
     
-    // Update ARIA
+    // Update accessibility
     elements.toggle.setAttribute('aria-expanded', 'false');
-    
-    // Reset menu items
-    const menuItems = document.querySelectorAll('.menu-item');
-    menuItems.forEach(item => {
-        item.style.opacity = '';
-        item.style.transform = '';
-    });
     
     // Reset animation flag
     setTimeout(() => {
-        mobileMenuState.isAnimating = false;
-        console.log('✅ Menu closed successfully');
+        menuState.isAnimating = false;
     }, 600);
 }
 
-// ===== NAVIGATION (FIXED VERSION) =====
+// Initialize when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeMobileMenu);
+// ===== NAVIGATION  =====
 function initializeNavigation() {
     console.log('🧭 Initializing navigation...');
     
