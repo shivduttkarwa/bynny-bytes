@@ -1,6 +1,8 @@
 // ===== BUNNY BITES WEBSITE JAVASCRIPT (FIXED VERSION) =====
 // Clean, organized, and maintainable code
 
+//  lucide.createIcons();
+
 document.addEventListener('DOMContentLoaded', function() {
     console.log('🚀 Initializing Bunny Bites website...');
     initializeWebsite();
