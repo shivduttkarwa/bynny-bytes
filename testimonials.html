@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bunny Bites - From Cravings to Comfort, Carefully Crafted</title>
+
+    <!-- Font Awesome Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fredoka:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ===== MOBILE MENU SYSTEM ===== -->
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+    <!-- Mobile Menu Panel -->
+    <nav class="mobile-menu-panel" id="mobile-menu-panel">
+      <!-- Menu Decorations -->
+      <div class="menu-decorations">
+        <div class="menu-floating-toy menu-toy-1">
+          <i class="fas fa-rabbit"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-2">
+          <i class="fas fa-rocket"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-3">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-4">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <div class="menu-floating-toy menu-toy-5">
+          <i class="fas fa-basketball-ball"></i>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <button
+        class="menu-close-btn"
+        id="menu-close-btn"
+        aria-label="Close menu"
+      ></button>
+
+      <!-- Menu Header -->
+      <div class="menu-header">
+        <div class="menu-logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="menu-logo-image"
+          />
+        </div>
+      </div>
+
+      <!-- Menu Items -->
+      <ul class="menu-items">
+        <li class="menu-item">
+          <a href="index.html" class="menu-link">
+            <div class="menu-icon">🏠</div>
+            <span>Home</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="about.html" class="menu-link">
+            <div class="menu-icon">🌱</div>
+            <span>About</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="#how-it-works" class="menu-link">
+            <div class="menu-icon">⚙️</div>
+            <span>How It Works</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="menu.html" class="menu-link">
+            <div class="menu-icon">🍱</div>
+            <span>Menu</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="testimonials.html" class="menu-link">
+            <div class="menu-icon">⭐</div>
+            <span>Reviews</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="contact.html" class="menu-link">
+            <div class="menu-icon">💚</div>
+            <span>Contact</span>
+            <div class="menu-arrow">→</div>
+          </a>
+        </li>
+      </ul>
+
+      <!-- Fun Footer - FIXED -->
+      <div class="menu-footer">
+        <div class="fun-message">
+          <span class="message-icon">🎉</span>
+          <p>Eat healthy, grow strong!</p>
+        </div>
+        <div class="menu-contact">
+          <a href="tel:+919876543210" class="contact-btn">
+            <i class="fas fa-phone"></i>
+            Call Us
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== UTILITY BUTTONS ===== -->
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" title="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Toys Toggle Button -->
+    <button class="toys-toggle" id="toys-toggle" title="Toggle floating toys">
+      <i class="fas fa-eye"></i>
+    </button>
+
+    <!-- ===== FLOATING TOYS ===== -->
+    <div class="page-toys">
+      <div class="floating-toy toy-1">
+        <i class="fas fa-rabbit"></i>
+      </div>
+      <div class="floating-toy toy-2">
+        <i class="fas fa-child"></i>
+      </div>
+      <div class="floating-toy toy-3">
+        <i class="fas fa-robot"></i>
+      </div>
+      <div class="floating-toy toy-4">
+        <i class="fas fa-car"></i>
+      </div>
+      <div class="floating-toy toy-5">
+        <i class="fas fa-rocket"></i>
+      </div>
+      <div class="floating-toy toy-6">
+        <i class="fas fa-basketball-ball"></i>
+      </div>
+      <div class="floating-toy toy-7">
+        <i class="fas fa-gamepad"></i>
+      </div>
+      <div class="floating-toy toy-8">
+        <i class="fas fa-dice"></i>
+      </div>
+      <div class="floating-toy toy-9">
+        <i class="fas fa-plane"></i>
+      </div>
+      <div class="floating-toy toy-10">
+        <i class="fas fa-horse"></i>
+      </div>
+      <div class="floating-toy toy-11">
+        <i class="fas fa-paw"></i>
+      </div>
+      <div class="floating-toy toy-12">
+        <i class="fas fa-puzzle-piece"></i>
+      </div>
+      <div class="floating-toy toy-13">
+        <i class="fas fa-fish"></i>
+      </div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          <img
+            src="img/bunny bites logo.svg"
+            alt="Bunny Bites Logo"
+            class="logo-image"
+          />
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="testimonials.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+
+        <div class="nav-right">
+          <a href="contact.html" class="cta-button">Order Now</a>
+
+          <!-- Mobile Menu Toggle Button -->
+          <button
+            class="mobile-menu-toggle"
+            id="mobile-menu-toggle"
+            aria-label="Toggle Menu"
+          ></button>
+        </div>
+      </div>
+    </nav>
+    <!-- ===== Main Section ===== -->
+
+    <!-- ===== REVIEWS PAGE MAIN SECTION ===== -->
+    <section class="reviews-page" id="reviews">
+      <div class="section-container">
+        <!-- Header Section -->
+        <div class="reviews-header">
+          <span class="section-badge">Customer Reviews</span>
+          <h1 class="page-title">What Parents Are Saying</h1>
+          <p class="page-description">
+            Real feedback from real families who trust Bunny Bites to nourish
+            their children. Discover why parents love our healthy meal boxes and
+            how we're making mealtime easier and more nutritious for families
+            across the city.
+          </p>
+        </div>
+
+        <!-- Review Stats -->
+        <div class="review-stats">
+          <div class="stats-card">
+            <div class="stat-number">4.9</div>
+            <div class="stat-stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="stat-label">Average Rating</div>
+            <div class="stat-subtext">Based on 247+ reviews</div>
+          </div>
+          <div class="stats-card">
+            <div class="stat-number">98%</div>
+            <div class="stat-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="stat-label">Satisfaction Rate</div>
+            <div class="stat-subtext">Kids love our meals</div>
+          </div>
+          <div class="stats-card">
+            <div class="stat-number">247+</div>
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-label">Happy Families</div>
+            <div class="stat-subtext">And counting!</div>
+          </div>
+          <div class="stats-card">
+            <div class="stat-number">95%</div>
+            <div class="stat-icon">
+              <i class="fas fa-redo"></i>
+            </div>
+            <div class="stat-label">Repeat Orders</div>
+            <div class="stat-subtext">Monthly subscriptions</div>
+          </div>
+        </div>
+
+        <!-- Filter Options -->
+        <div class="review-filters">
+          <div class="filter-group">
+            <button class="filter-btn active" data-filter="all">
+              All Reviews
+            </button>
+            <button class="filter-btn" data-filter="5-star">5 Star</button>
+            <button class="filter-btn" data-filter="4-star">4 Star</button>
+            <button class="filter-btn" data-filter="recent">Most Recent</button>
+            <button class="filter-btn" data-filter="verified">
+              Verified Orders
+            </button>
+          </div>
+          <div class="sort-dropdown">
+            <select id="sortReviews">
+              <option value="newest">Newest First</option>
+              <option value="oldest">Oldest First</option>
+              <option value="highest">Highest Rated</option>
+              <option value="lowest">Lowest Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="reviews-grid">
+          <!-- Review 1 -->
+          <div class="review-card" data-rating="5">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                  <img
+                    src="img/reviewer-1.jpg"
+                    alt="Priya Sharma"
+                    class="avatar-image"
+                  />
+                  <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="reviewer-details">
+                  <h3 class="reviewer-name">Priya Sharma</h3>
+                  <div class="reviewer-meta">
+                    <span class="location">Mumbai, Maharashtra</span>
+                    <span class="verified">✓ Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">5.0</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <h4 class="review-title">
+                Amazing quality and my daughter loves it!
+              </h4>
+              <p class="review-text">
+                "I've been ordering from Bunny Bites for 3 months now and I'm
+                absolutely impressed! My 6-year-old daughter, who used to be
+                extremely picky with food, now eagerly waits for her lunch box.
+                The Paneer Paratha meal box is her absolute favorite. The
+                packaging is excellent and food always arrives fresh and warm."
+              </p>
+              <div class="review-footer">
+                <div class="ordered-items">
+                  <span class="item-tag">Paneer Paratha Box</span>
+                  <span class="item-tag">Khichdi Bowl</span>
+                </div>
+                <div class="review-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>2 weeks ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card" data-rating="5">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                  <img
+                    src="img/reviewer-2.jpg"
+                    alt="Rajesh Kumar"
+                    class="avatar-image"
+                  />
+                  <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="reviewer-details">
+                  <h3 class="reviewer-name">Rajesh Kumar</h3>
+                  <div class="reviewer-meta">
+                    <span class="location">Delhi, NCR</span>
+                    <span class="verified">✓ Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">5.0</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <h4 class="review-title">Perfect nutrition for growing kids</h4>
+              <p class="review-text">
+                "As a working parent, Bunny Bites has been a lifesaver! The
+                Traditional Thali Box provides exactly what my 8-year-old son
+                needs - balanced nutrition without compromising on taste. The
+                delivery is always on time, and the customer service is
+                exceptional. Highly recommended for busy parents!"
+              </p>
+              <div class="review-footer">
+                <div class="ordered-items">
+                  <span class="item-tag">Traditional Thali</span>
+                  <span class="item-tag">Quinoa Bowl</span>
+                </div>
+                <div class="review-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>1 week ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card" data-rating="4">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                  <img
+                    src="img/reviewer-3.jpg"
+                    alt="Anita Desai"
+                    class="avatar-image"
+                  />
+                  <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="reviewer-details">
+                  <h3 class="reviewer-name">Anita Desai</h3>
+                  <div class="reviewer-meta">
+                    <span class="location">Bangalore, Karnataka</span>
+                    <span class="verified">✓ Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-text">4.0</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <h4 class="review-title">
+                Good quality, would like more variety
+              </h4>
+              <p class="review-text">
+                "The food quality is excellent and my kids enjoy most of the
+                meals. The Vegetable Pulao is particularly well-made. I'd love
+                to see more South Indian options in the menu. The portion sizes
+                are perfect for school-going children. Overall, very satisfied
+                with the service."
+              </p>
+              <div class="review-footer">
+                <div class="ordered-items">
+                  <span class="item-tag">Vegetable Pulao</span>
+                  <span class="item-tag">Rajma Bowl</span>
+                </div>
+                <div class="review-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>3 weeks ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-card" data-rating="5">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                  <img
+                    src="img/reviewer-4.jpg"
+                    alt="Meera Patel"
+                    class="avatar-image"
+                  />
+                  <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="reviewer-details">
+                  <h3 class="reviewer-name">Meera Patel</h3>
+                  <div class="reviewer-meta">
+                    <span class="location">Pune, Maharashtra</span>
+                    <span class="verified">✓ Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">5.0</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <h4 class="review-title">
+                Finally, healthy meals that kids actually eat!
+              </h4>
+              <p class="review-text">
+                "I was skeptical at first, but Bunny Bites exceeded all
+                expectations! My twin boys (age 7) used to refuse eating
+                vegetables, but they love the Mixed Vegetable Khichdi. The
+                ingredients are fresh, the taste is authentic, and the
+                nutritional value is exactly what growing children need. Best
+                investment for my kids' health!"
+              </p>
+              <div class="review-footer">
+                <div class="ordered-items">
+                  <span class="item-tag">Khichdi Bowl</span>
+                  <span class="item-tag">Paneer Paratha</span>
+                </div>
+                <div class="review-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>1 month ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="review-card" data-rating="5">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                  <img
+                    src="img/reviewer-5.jpg"
+                    alt="Vikram Singh"
+                    class="avatar-image"
+                  />
+                  <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="reviewer-details">
+                  <h3 class="reviewer-name">Vikram Singh</h3>
+                  <div class="reviewer-meta">
+                    <span class="location">Jaipur, Rajasthan</span>
+                    <span class="verified">✓ Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+                <span class="rating-text">5.0</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <h4 class="review-title">Reliable and consistent quality</h4>
+              <p class="review-text">
+                "We've been subscribers for over 6 months now. The consistency
+                in quality and taste is remarkable. My daughter looks forward to
+                her Quinoa Veggie Bowl every day. The customer support team is
+                very responsive, and the delivery is always punctual. Bunny
+                Bites has become an essential part of our daily routine."
+              </p>
+              <div class="review-footer">
+                <div class="ordered-items">
+                  <span class="item-tag">Quinoa Bowl</span>
+                  <span class="item-tag">Traditional Thali</span>
+                </div>
+                <div class="review-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>5 days ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 6 -->
+          <div class="review-card" data-rating="4">
+            <div class="review-header">
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">
+                  <img
+                    src="img/reviewer-6.jpg"
+                    alt="Sunita Agarwal"
+                    class="avatar-image"
+                  />
+                  <div class="avatar-placeholder">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <div class="reviewer-details">
+                  <h3 class="reviewer-name">Sunita Agarwal</h3>
+                  <div class="reviewer-meta">
+                    <span class="location">Chennai, Tamil Nadu</span>
+                    <span class="verified">✓ Verified Purchase</span>
+                  </div>
+                </div>
+              </div>
+              <div class="review-rating">
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+                <span class="rating-text">4.0</span>
+              </div>
+            </div>
+            <div class="review-content">
+              <h4 class="review-title">Great concept, excellent execution</h4>
+              <p class="review-text">
+                "Bunny Bites has solved my biggest parenting challenge -
+                ensuring my kids eat healthy while I'm at work. The Brown Rice
+                Rajma Bowl is delicious and nutritious. The only improvement I'd
+                suggest is having weekend delivery options. Other than that,
+                completely satisfied with the service!"
+              </p>
+              <div class="review-footer">
+                <div class="ordered-items">
+                  <span class="item-tag">Rajma Bowl</span>
+                  <span class="item-tag">Vegetable Pulao</span>
+                </div>
+                <div class="review-date">
+                  <i class="fas fa-calendar-alt"></i>
+                  <span>2 weeks ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-section">
+          <button class="load-more-btn">
+            <i class="fas fa-plus"></i>
+            Load More Reviews
+          </button>
+          <p class="load-more-text">Showing 6 of 247+ reviews</p>
+        </div>
+
+        <!-- Write Review CTA -->
+        <div class="write-review-cta">
+          <div class="cta-content">
+            <h3>Share Your Experience</h3>
+            <p>
+              Tried our meal boxes? We'd love to hear from you! Your feedback
+              helps us serve better meals to more families.
+            </p>
+            <a href="contact.html" class="write-review-btn">
+              <i class="fas fa-edit"></i>
+              Write a Review
+            </a>
+          </div>
+          <div class="cta-illustration">
+            <div class="review-emoji">⭐</div>
+            <div class="review-emoji">😊</div>
+            <div class="review-emoji">❤️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== IMPROVED FOOTER ===== -->
+    <footer class="footer">
+      <div class="section-container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="logo">
+              <img
+                src="img/bunny bites logo.svg"
+                alt="Bunny Bites Logo"
+                class="logo-image"
+              />
+            </div>
+            <p class="footer-tagline">
+              From Cravings to Comfort, Carefully Crafted
+            </p>
+            <p class="footer-description">
+              Providing nutritious, delicious meals that kids love and parents
+              trust. Every bite is a step towards healthier, happier children.
+            </p>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Quick Links</h4>
+              <ul>
+                <li>
+                  <a href="#home"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                  <a href="#about"><i class="fas fa-heart"></i> About</a>
+                </li>
+                <li>
+                  <a href="#menu"><i class="fas fa-utensils"></i> Menu</a>
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="fas fa-paper-plane"></i> Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Get In Touch</h4>
+              <ul>
+                <li>
+                  <a href="tel:+919876543210"
+                    ><i class="fas fa-phone"></i> +91 98765 43210</a
+                  >
+                </li>
+                <li>
+                  <a href="mailto:hello@bunnybites.com"
+                    ><i class="fas fa-envelope"></i> hello@bunnybites.com</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="fas fa-clock"></i> Daily 8AM - 8PM</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="fas fa-map-marker-alt"></i> Jaipur & Areas</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <div class="footer-bottom-left">
+              <p>&copy; 2025 Bunny Bites. All rights reserved.</p>
+              <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+              </div>
+            </div>
+
+            <div class="footer-bottom-right">
+              <div class="footer-social">
+                <p>Follow Our Food Journey</p>
+                <div class="social-links">
+                  <a
+                    href="#"
+                    class="social-link facebook"
+                    aria-label="Facebook"
+                  >
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-link instagram"
+                    aria-label="Instagram"
+                  >
+                    <i class="fab fa-instagram"></i>
+                  </a>
+                  <a href="#" class="social-link twitter" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                  <a
+                    href="#"
+                    class="social-link whatsapp"
+                    aria-label="WhatsApp"
+                  >
+                    <i class="fab fa-whatsapp"></i>
+                  </a>
+                </div>
+              </div>
+              <p class="footer-credit">
+                designed with <i class="fas fa-heart"></i> by
+                <a href="#">SK</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="script.js"></script>
+  </body>
+</html>

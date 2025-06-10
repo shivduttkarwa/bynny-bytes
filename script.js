@@ -474,14 +474,14 @@ function initializeInteractiveElements() {
         });
     });
 
-    // Add to cart functionality
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            addToCartAnimation(this);
-        });
-    });
+    // // Add to cart functionality
+    // const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    // addToCartButtons.forEach(button => {
+    //     button.addEventListener('click', function(e) {
+    //         e.preventDefault();
+    //         addToCartAnimation(this);
+    //     });
+    // });
 
     // Contact items hover effect
     const contactItems = document.querySelectorAll('.contact-item');
@@ -750,34 +750,9 @@ window.BunnyBites = {
 console.log('🎉 Bunny Bites JavaScript loaded successfully!');
 
 
-//======================About Us Section======================
+//======================About Us Page JS======================
 
-// Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Intersection Observer for animations
+// Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -796,3 +771,98 @@ console.log('🎉 Bunny Bites JavaScript loaded successfully!');
         document.querySelectorAll('.story-text, .story-visual, .feature-card, .team-member').forEach(el => {
             observer.observe(el);
         });
+
+
+        //======================Menu Page JS======================
+// Menu Order Button Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const orderButtons = document.querySelectorAll('.order-btn');
+    
+    orderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const itemName = this.getAttribute('data-item');
+            const menuCard = this.closest('.menu-card');
+            const itemTitle = menuCard.querySelector('.menu-title').textContent;
+            const itemPrice = menuCard.querySelector('.price-overlay').textContent;
+            
+            // Store selected item in localStorage to pre-fill contact form
+            localStorage.setItem('selectedMeal', itemTitle);
+            localStorage.setItem('selectedMealData', JSON.stringify({
+                name: itemTitle,
+                id: itemName,
+                price: itemPrice
+            }));
+            
+            // Add loading state
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+            this.disabled = true;
+            this.style.pointerEvents = 'none';
+            
+            // Redirect to contact page after short delay
+            setTimeout(() => {
+                window.location.href = 'contact.html';
+            }, 1000);
+        });
+    });
+});
+
+
+//======================Review Page JS======================
+
+
+// Reviews Page Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            reviewCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else if (filter === '5-star') {
+                    const rating = card.getAttribute('data-rating');
+                    card.style.display = rating === '5' ? 'block' : 'none';
+                } else if (filter === '4-star') {
+                    const rating = card.getAttribute('data-rating');
+                    card.style.display = rating === '4' ? 'block' : 'none';
+                }
+                // Add more filter logic as needed
+            });
+        });
+    });
+    
+    // Load more functionality
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    loadMoreBtn.addEventListener('click', function() {
+        // Add loading state
+        const originalText = this.innerHTML;
+        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+        this.disabled = true;
+        
+        // Simulate loading more reviews
+        setTimeout(() => {
+            this.innerHTML = originalText;
+            this.disabled = false;
+            // Here you would typically load more review cards
+            alert('More reviews would be loaded here!');
+        }, 2000);
+    });
+    
+    // Sort functionality
+    const sortSelect = document.getElementById('sortReviews');
+    sortSelect.addEventListener('change', function() {
+        const sortValue = this.value;
+        // Implement sorting logic here
+        console.log('Sorting by:', sortValue);
+    });
+});
