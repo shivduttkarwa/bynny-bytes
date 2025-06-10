@@ -5,6 +5,7 @@
   --bunny-green: #689f38;
   --cream: #fff8e1;
   --light-cream: #fffbf0;
+  --dark-cream: #bbe8ae;
   --dark-text: #1a1a1a;
   --medium-text: #4a4a4a;
   --light-text: #757575;
@@ -1112,7 +1113,7 @@ body.menu-open {
   transition: all 0.3s ease;
 }
 .hero-visual .hero-image-wrapper {
-  background: var(--bunny-green);
+  background: linear-gradient(var(--bunny-yellow) 0%, var(--bunny-green) 100%);
 }
 
 .hero-image-wrapper:hover {
