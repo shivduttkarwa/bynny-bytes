@@ -2445,7 +2445,7 @@ body.menu-open {
     height: 25px;
     font-size: 1rem;
     top: 0px;
-    right: 15px;
+    left: 3px;
   }
 
   .toys-toggle {
@@ -3301,7 +3301,7 @@ body.menu-open {
 .step-number {
   position: absolute;
   top: 0px;
-  right: 20px;
+  left: 20px;
   width: 35px;
   height: 35px;
   background: var(--bunny-red);
@@ -4075,6 +4075,12 @@ body.menu-open {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  .footer-tagline {
+    margin-left: 26px;
+  }
+  .footer-brand .logo-image {
+    margin-left: -10px;
+  }
   .footer {
     padding: 2.5rem 0 1rem;
   }
