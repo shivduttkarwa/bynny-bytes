@@ -1,4 +1,4 @@
-// ===== BUNNY BITES WEBSITE JAVASCRIPT =====
+// ===== BUNNY BITES WEBSITE JAVASCRIPT (FIXED VERSION) =====
 // Clean, organized, and maintainable code
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -16,6 +16,7 @@ function initializeWebsite() {
     initializeFloatingToys();
     initializeBackToTop();
     initializeImageLoading();
+    initializePageSpecificFunctions();
     console.log('✅ Bunny Bites website initialized successfully!');
 }
 
@@ -155,7 +156,8 @@ function setupMobileMenuEvents(elements) {
         
         // Handle click with animation
         link.addEventListener('click', function(e) {
-            console.log('🔗 Menu link clicked:', this.textContent.trim());
+            const href = this.getAttribute('href');
+            console.log('🔗 Menu link clicked:', this.textContent.trim(), 'href:', href);
             
             // Add click animation for icon
             if (icon && !icon.classList.contains('clicked')) {
@@ -171,12 +173,30 @@ function setupMobileMenuEvents(elements) {
                 this.style.transform = '';
             }, 150);
             
-            // Close menu after animation
-            setTimeout(() => {
-                if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
-                    closeMobileMenu(elements);
-                }
-            }, 300);
+            // Only prevent default and close menu for hash links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                // Close menu after animation for same-page navigation
+                setTimeout(() => {
+                    if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
+                        closeMobileMenu(elements);
+                    }
+                    // Scroll to target after menu closes
+                    const target = document.querySelector(href);
+                    if (target) {
+                        setTimeout(() => {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }, 600);
+                    }
+                }, 300);
+            } else {
+                // For external links, close menu and allow normal navigation
+                setTimeout(() => {
+                    if (mobileMenuState.isOpen && !mobileMenuState.isAnimating) {
+                        closeMobileMenu(elements);
+                    }
+                }, 200);
+            }
         });
         
         // Handle mouse events for desktop
@@ -298,7 +318,7 @@ function closeMobileMenu(elements) {
     }, 600);
 }
 
-// ===== NAVIGATION =====
+// ===== NAVIGATION (FIXED VERSION) =====
 function initializeNavigation() {
     console.log('🧭 Initializing navigation...');
     
@@ -324,25 +344,32 @@ function initializeNavigation() {
         lastScrollTop = scrollTop;
     }, 16));
 
-    // Smooth scrolling for navigation links
+    // Smart navigation handling - FIXED VERSION
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const target = document.querySelector(targetId);
+            const href = this.getAttribute('href');
+            console.log('🔗 Nav link clicked:', href);
             
-            if (target) {
-                const offsetTop = target.offsetTop - 80;
+            // Only prevent default for hash links (same-page navigation)
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(href);
                 
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Update active nav link
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active nav link for same-page navigation
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                }
             }
+            // For external links (.html files), allow normal navigation
+            // No preventDefault() is called, so the browser will navigate normally
         });
     });
     
@@ -473,15 +500,6 @@ function initializeInteractiveElements() {
             this.style.transform = 'translateY(0)';
         });
     });
-
-    // // Add to cart functionality
-    // const addToCartButtons = document.querySelectorAll('.add-to-cart');
-    // addToCartButtons.forEach(button => {
-    //     button.addEventListener('click', function(e) {
-    //         e.preventDefault();
-    //         addToCartAnimation(this);
-    //     });
-    // });
 
     // Contact items hover effect
     const contactItems = document.querySelectorAll('.contact-item');
@@ -621,6 +639,229 @@ function initializeImageLoading() {
     console.log('✅ Image loading initialized');
 }
 
+// ===== PAGE SPECIFIC FUNCTIONS =====
+function initializePageSpecificFunctions() {
+    console.log('📄 Initializing page-specific functions...');
+    
+    // About Page Animations
+    initializeAboutPageAnimations();
+    
+    // Menu Page Order Buttons
+    initializeMenuOrderButtons();
+    
+    // Reviews Page Functionality
+    initializeReviewsPage();
+    
+    // Privacy Policy Page
+    initializePrivacyPolicyPage();
+    
+    // Contact Form Pre-fill
+    initializeContactFormPrefill();
+    
+    console.log('✅ Page-specific functions initialized');
+}
+
+// ===== ABOUT PAGE ANIMATIONS =====
+function initializeAboutPageAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = '0s';
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements for animation
+    document.querySelectorAll('.story-text, .story-visual, .feature-card, .team-member').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// ===== MENU PAGE ORDER BUTTONS =====
+function initializeMenuOrderButtons() {
+    const orderButtons = document.querySelectorAll('.order-btn');
+    
+    orderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const itemName = this.getAttribute('data-item');
+            const menuCard = this.closest('.menu-card');
+            const itemTitle = menuCard ? menuCard.querySelector('.menu-title')?.textContent : '';
+            const itemPrice = menuCard ? menuCard.querySelector('.price-overlay')?.textContent : '';
+            
+            // Store selected item in localStorage to pre-fill contact form
+            if (itemTitle) {
+                localStorage.setItem('selectedMeal', itemTitle);
+                localStorage.setItem('selectedMealData', JSON.stringify({
+                    name: itemTitle,
+                    id: itemName,
+                    price: itemPrice
+                }));
+            }
+            
+            // Add loading state
+            const originalHTML = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
+            this.disabled = true;
+            this.style.pointerEvents = 'none';
+            
+            // Redirect to contact page after short delay
+            setTimeout(() => {
+                window.location.href = 'contact.html';
+            }, 1000);
+        });
+    });
+}
+
+// ===== REVIEWS PAGE FUNCTIONALITY =====
+function initializeReviewsPage() {
+    // Filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.getAttribute('data-filter');
+            
+            reviewCards.forEach(card => {
+                if (filter === 'all') {
+                    card.style.display = 'block';
+                } else if (filter === '5-star') {
+                    const rating = card.getAttribute('data-rating');
+                    card.style.display = rating === '5' ? 'block' : 'none';
+                } else if (filter === '4-star') {
+                    const rating = card.getAttribute('data-rating');
+                    card.style.display = rating === '4' ? 'block' : 'none';
+                }
+            });
+        });
+    });
+    
+    // Load more functionality
+    const loadMoreBtn = document.querySelector('.load-more-btn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // Add loading state
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
+            this.disabled = true;
+            
+            // Simulate loading more reviews
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.disabled = false;
+                alert('More reviews would be loaded here!');
+            }, 2000);
+        });
+    }
+    
+    // Sort functionality
+    const sortSelect = document.getElementById('sortReviews');
+    if (sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            const sortValue = this.value;
+            console.log('Sorting by:', sortValue);
+        });
+    }
+}
+
+// ===== PRIVACY POLICY PAGE FUNCTIONALITY =====
+function initializePrivacyPolicyPage() {
+    // Smooth scrolling for table of contents
+    const tocLinks = document.querySelectorAll('.toc-item');
+    
+    tocLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Cookie settings button
+    const cookieSettingsBtn = document.querySelector('.cookie-settings-btn');
+    if (cookieSettingsBtn) {
+        cookieSettingsBtn.addEventListener('click', function() {
+            alert('Cookie preference center would open here!');
+        });
+    }
+    
+    // Subscribe to updates button
+    const subscribeBtn = document.querySelector('.subscribe-btn');
+    if (subscribeBtn) {
+        subscribeBtn.addEventListener('click', function() {
+            const email = prompt('Enter your email to receive policy updates:');
+            if (email) {
+                alert('Thank you! You will receive notifications about policy updates at ' + email);
+            }
+        });
+    }
+    
+    // Highlight current section on scroll
+    window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('.policy-section');
+        const tocItems = document.querySelectorAll('.toc-item');
+        
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) {
+                currentSection = '#' + section.id;
+            }
+        });
+        
+        tocItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === currentSection) {
+                item.classList.add('active');
+            }
+        });
+    });
+}
+
+// ===== CONTACT FORM PRE-FILL =====
+function initializeContactFormPrefill() {
+    // Pre-fill contact form with selected meal data
+    const selectedMeal = localStorage.getItem('selectedMeal');
+    const selectedMealData = localStorage.getItem('selectedMealData');
+    
+    if (selectedMeal && selectedMealData) {
+        const messageField = document.getElementById('message');
+        const subjectField = document.getElementById('subject');
+        
+        if (messageField && !messageField.value) {
+            const mealData = JSON.parse(selectedMealData);
+            messageField.value = `Hi! I'm interested in ordering ${mealData.name}. Please provide more details about availability and delivery options.`;
+        }
+        
+        if (subjectField && !subjectField.value) {
+            subjectField.value = `Order Inquiry - ${selectedMeal}`;
+        }
+        
+        // Clear the stored data after use
+        localStorage.removeItem('selectedMeal');
+        localStorage.removeItem('selectedMealData');
+    }
+}
+
 // ===== UTILITY FUNCTIONS =====
 function throttle(func, limit) {
     let inThrottle;
@@ -748,121 +989,3 @@ window.BunnyBites = {
 };
 
 console.log('🎉 Bunny Bites JavaScript loaded successfully!');
-
-
-//======================About Us Page JS======================
-
-// Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationDelay = '0s';
-                    entry.target.style.animationPlayState = 'running';
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.story-text, .story-visual, .feature-card, .team-member').forEach(el => {
-            observer.observe(el);
-        });
-
-
-        //======================Menu Page JS======================
-// Menu Order Button Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const orderButtons = document.querySelectorAll('.order-btn');
-    
-    orderButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const itemName = this.getAttribute('data-item');
-            const menuCard = this.closest('.menu-card');
-            const itemTitle = menuCard.querySelector('.menu-title').textContent;
-            const itemPrice = menuCard.querySelector('.price-overlay').textContent;
-            
-            // Store selected item in localStorage to pre-fill contact form
-            localStorage.setItem('selectedMeal', itemTitle);
-            localStorage.setItem('selectedMealData', JSON.stringify({
-                name: itemTitle,
-                id: itemName,
-                price: itemPrice
-            }));
-            
-            // Add loading state
-            const originalHTML = this.innerHTML;
-            this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting...';
-            this.disabled = true;
-            this.style.pointerEvents = 'none';
-            
-            // Redirect to contact page after short delay
-            setTimeout(() => {
-                window.location.href = 'contact.html';
-            }, 1000);
-        });
-    });
-});
-
-
-//======================Review Page JS======================
-
-
-// Reviews Page Functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Filter functionality
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const reviewCards = document.querySelectorAll('.review-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filter = this.getAttribute('data-filter');
-            
-            reviewCards.forEach(card => {
-                if (filter === 'all') {
-                    card.style.display = 'block';
-                } else if (filter === '5-star') {
-                    const rating = card.getAttribute('data-rating');
-                    card.style.display = rating === '5' ? 'block' : 'none';
-                } else if (filter === '4-star') {
-                    const rating = card.getAttribute('data-rating');
-                    card.style.display = rating === '4' ? 'block' : 'none';
-                }
-                // Add more filter logic as needed
-            });
-        });
-    });
-    
-    // Load more functionality
-    const loadMoreBtn = document.querySelector('.load-more-btn');
-    loadMoreBtn.addEventListener('click', function() {
-        // Add loading state
-        const originalText = this.innerHTML;
-        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Loading...';
-        this.disabled = true;
-        
-        // Simulate loading more reviews
-        setTimeout(() => {
-            this.innerHTML = originalText;
-            this.disabled = false;
-            // Here you would typically load more review cards
-            alert('More reviews would be loaded here!');
-        }, 2000);
-    });
-    
-    // Sort functionality
-    const sortSelect = document.getElementById('sortReviews');
-    sortSelect.addEventListener('change', function() {
-        const sortValue = this.value;
-        // Implement sorting logic here
-        console.log('Sorting by:', sortValue);
-    });
-});
