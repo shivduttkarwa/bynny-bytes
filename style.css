@@ -1088,7 +1088,7 @@ body.menu-open {
   margin-top: 0.3rem;
 }
 
-/* Hero Visual */
+/* Hero Visual - Fixed */
 .hero-visual {
   position: relative;
   display: flex;
@@ -1111,6 +1111,9 @@ body.menu-open {
   box-shadow: var(--shadow-heavy);
   transition: all 0.3s ease;
 }
+.hero-visual .hero-image-wrapper {
+  background: var(--bunny-green);
+}
 
 .hero-image-wrapper:hover {
   transform: scale(1.02);
@@ -1121,7 +1124,13 @@ body.menu-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .hero-image-placeholder {
@@ -1130,14 +1139,15 @@ body.menu-open {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--white);
+  background: var(--light-cream);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: var(--light-text);
+  color: var(--light-cream);
   font-size: 1.2rem;
   font-weight: 600;
+  z-index: -1; /* Put placeholder behind the image */
 }
 
 .hero-image-placeholder i {
@@ -1146,7 +1156,12 @@ body.menu-open {
   margin-bottom: 1rem;
 }
 
-.hero-main-image:not([src=""]):not([src="your-hero-image.jpg"])
+/* Hide placeholder when image is loaded */
+.hero-main-image[src]:not([src=""]):not([src="your-hero-image.jpg"]) {
+  z-index: 1;
+}
+
+.hero-main-image[src]:not([src=""]):not([src="your-hero-image.jpg"])
   + .hero-image-placeholder {
   display: none;
 }
@@ -4078,7 +4093,7 @@ body.menu-open {
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .footer-tagline {
-    margin-left: 0px;
+    margin-left: 26px;
   }
   .footer-brand .logo-image {
     margin-left: -10px;
@@ -4638,11 +4653,7 @@ body.menu-open {
 /*===================About Us Section===================*/
 /* Additional elegant styles for about page */
 .about-hero .hero-image-wrapper {
-  background: linear-gradient(
-    135deg,
-    var(--bunny-yellow) 0%,
-    var(--bunny-green) 100%
-  );
+  background: linear-gradient(var(--bunny-yellow) 0%, var(--bunny-green) 100%);
 }
 
 .story-section {
