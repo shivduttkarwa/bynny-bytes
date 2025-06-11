@@ -3317,8 +3317,8 @@ body.menu-open {
 
 .step-number {
   position: absolute;
-  top: 0px;
-  left: 20px;
+  top: 10px;
+  left: 16px;
   width: 35px;
   height: 35px;
   background: var(--bunny-red);
@@ -3783,7 +3783,7 @@ body.menu-open {
 
 .contact-item i {
   font-size: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0rem;
   transition: all 0.3s ease;
 }
 
@@ -6768,4 +6768,11 @@ body.menu-open {
     flex-direction: column;
     text-align: center;
   }
+}
+
+.phone-number {
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  list-style: none;
 }
