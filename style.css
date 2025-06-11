@@ -6771,8 +6771,15 @@ body.menu-open {
 }
 
 .phone-number {
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  list-style: none;
+  color: white; /* Set the text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Optional: bold text */
+  font-size: 1.2rem; /* Optional: size */
+  display: inline-block; /* Better control */
+  margin-top: 8px;
+}
+
+.phone-number:hover {
+  color: #ffd700; /* Optional: hover color */
+  text-decoration: underline; /* Optional: add underline on hover */
 }
