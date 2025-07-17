@@ -346,8 +346,8 @@ body {
   border-radius: 30px;
   box-shadow: var(--shadow-medium);
   height: fit-content;
-  position: sticky;
-  top: 100px;
+  position: relative;
+  top: 0px;
 }
 
 .ct-contact-header {
