@@ -12,6 +12,7 @@
     />
 
     <!-- Google Fonts -->
+
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fredoka:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -19,6 +20,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hero-styles.css" />
   </head>
 
   <body>
@@ -217,80 +219,50 @@
     </nav>
 
     <!-- ===== HERO SECTION ===== -->
-    <section class="hero" id="home">
+    <section class="hero-banner fullscreen-hero" id="home">
+      <div class="hero-background">
+        <img
+          src="img/pexels-ella-olsson-572949-1640777.jpg"
+          alt="Delicious Kids Meal"
+          class="hero-bg-image"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
       <div class="hero-container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-star"></i>
-            Trusted by 100+ Families
-          </div>
           <h1 class="hero-title">
             Nutritious Meals for <span class="highlight">Happy Kids</span>
           </h1>
           <p class="hero-subtitle">
             From Cravings to Comfort, Carefully Crafted
           </p>
-          <p class="hero-description">
-            Supporting busy parents with convenient, healthy meals that kids
-            actually love. Every dish is thoughtfully prepared with quality
-            ingredients and balanced nutrition to fuel your child's growth and
-            happiness.
-          </p>
           <div class="hero-buttons">
-            <a href="menu.html" class="btn-primary">
+            <a href="menu.html" class="hero-btn-primary hero-cta">
               <i class="fas fa-utensils"></i>
               Explore Menu
             </a>
-            <a href="about.html" class="btn-secondary">
-              <i class="fas fa-heart"></i>
-              Our Story
+            <a href="contact.html" class="hero-btn-secondary hero-cta">
+              <i class="fas fa-phone"></i>
+              Order Now
             </a>
           </div>
-
-          <!-- Stats Section -->
-          <div class="hero-stats">
-            <div class="stat-item">
-              <div class="stat-number">100+</div>
-              <div class="stat-label">Happy Families</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">20+</div>
-              <div class="stat-label">Menu Items</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Fresh & Healthy</div>
-            </div>
-          </div>
         </div>
+      </div>
 
-        <div class="hero-visual">
-          <!-- Main Hero Image Container -->
-          <div class="hero-image-container">
-            <div class="hero-image-wrapper">
-              <img
-                src="img/hero.png"
-                alt="Delicious Kids Meal"
-                class="hero-main-image"
-              />
-              <!-- Fallback if no image is added -->
-              <div class="hero-image-placeholder">
-                <i class="fas fa-image"></i>
-                <p>Add Your Hero Image Here</p>
-              </div>
-            </div>
-
-            <!-- Simple Decorative Elements -->
-            <div class="hero-decoration decoration-1">
-              <i class="fas fa-star"></i>
-            </div>
-            <div class="hero-decoration decoration-2">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="hero-decoration decoration-3">
-              <i class="fas fa-cookie-bite"></i>
-            </div>
-          </div>
+      <!-- Floating decorative elements -->
+      <div class="hero-decorations">
+        <div class="hero-decoration decoration-1">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="hero-decoration decoration-2">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="hero-decoration decoration-3">
+          <i class="fas fa-cookie-bite"></i>
+        </div>
+        <div class="hero-decoration decoration-4">
+          <i class="fas fa-utensils"></i>
         </div>
       </div>
     </section>
@@ -835,11 +807,7 @@
           <div class="contact-item">
             <i class="fas fa-phone"></i>
             <h4>Call Us</h4>
-            
-              <a class="phone-number" href="tel:+919672977760"></a>
-                +91 96729 77760</a
-              >
-            
+            <a class="phone-number" href="tel:+919672977760">+91 96729 77760</a>
           </div>
           <div class="contact-item">
             <i class="fas fa-envelope"></i>

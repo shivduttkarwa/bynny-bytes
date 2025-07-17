@@ -19,6 +19,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="hero-styles.css" />
   </head>
 
   <body>
@@ -217,66 +218,50 @@
     </nav>
 
     <!-- ===== ABOUT HERO SECTION ===== -->
-    <section class="hero about-hero">
+    <section class="hero-banner fullscreen-hero about-hero">
+      <div class="hero-background">
+        <img
+          src="img/quinoa-mushrooms-lettuce-red-cabbage-spinach-cucumbers-tomatoes-bowl-buddha-dark-top-view.jpg"
+          alt="Healthy family meals"
+          class="hero-bg-image"
+        />
+        <div class="hero-overlay"></div>
+      </div>
+
       <div class="hero-container">
         <div class="hero-content">
-          <div class="hero-badge">
-            <i class="fas fa-heart"></i>
-            About Bunny Bites
-          </div>
           <h1 class="hero-title">
-            Creating <span class="highlight">Healthy Happiness</span> One Bite
-            at a Time
+            Creating <span class="highlight">Healthy Happiness</span>
           </h1>
           <p class="hero-subtitle">
-            From Cravings to Comfort, Carefully Crafted
+            Nutritious meals made with love for growing kids
           </p>
-          <p class="hero-description">
-            At Bunny Bites, we believe every child deserves nutritious,
-            delicious meals that fuel their growth and spark their joy. Founded
-            with love and a passion for healthy eating, we're on a mission to
-            make mealtime magical for families across Jaipur.
-          </p>
-          <div class="hero-stats">
-            <div class="stat-item">
-              <div class="stat-number">100+</div>
-              <div class="stat-label">Happy Families</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">2000+</div>
-              <div class="stat-label">Meals Served</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-number">98%</div>
-              <div class="stat-label">Satisfaction</div>
-            </div>
+          <div class="hero-buttons">
+            <a href="menu.html" class="hero-btn-primary hero-cta">
+              <i class="fas fa-utensils"></i>
+              View Our Menu
+            </a>
+            <a href="contact.html" class="hero-btn-secondary hero-cta">
+              <i class="fas fa-phone"></i>
+              Get In Touch
+            </a>
           </div>
         </div>
+      </div>
 
-        <div class="hero-visual">
-          <div class="hero-image-container">
-            <div class="hero-image-wrapper">
-              <img
-                src="img/healthy food-cuate.svg"
-                alt="Bunny Bites team preparing healthy meals"
-                class="hero-main-image"
-              />
-              <div class="hero-image-placeholder">
-                <i class="fas fa-users"></i>
-                <p>Our Amazing<br />Team</p>
-              </div>
-            </div>
-
-            <div class="hero-decoration decoration-1">
-              <i class="fas fa-heart"></i>
-            </div>
-            <div class="hero-decoration decoration-2">
-              <i class="fas fa-leaf"></i>
-            </div>
-            <div class="hero-decoration decoration-3">
-              <i class="fas fa-star"></i>
-            </div>
-          </div>
+      <!-- Floating decorative elements -->
+      <div class="hero-decorations">
+        <div class="hero-decoration decoration-1">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="hero-decoration decoration-2">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <div class="hero-decoration decoration-3">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="hero-decoration decoration-4">
+          <i class="fas fa-users"></i>
         </div>
       </div>
     </section>
