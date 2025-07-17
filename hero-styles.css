@@ -51,7 +51,7 @@
 .fullscreen-hero .hero-container {
   position: relative;
   z-index: 3;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -155,7 +155,7 @@
   background: var(--bunny-red);
   color: var(--white);
   padding: 1rem 2rem;
-  border: 2px solid var(--bunny-green);
+  border: 2px solid var(--shadow-heavy);
   border-radius: 50px;
   text-decoration: none;
   font-weight: 600;
